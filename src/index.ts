@@ -1,2 +1,3 @@
-const message: string = "Hello world";
-console.log(message);
+import TestComponent from "./TestComponent/TestComponent";
+
+export { TestComponent };

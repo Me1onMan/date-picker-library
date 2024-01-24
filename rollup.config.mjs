@@ -1,19 +1,41 @@
 import typescript from "@rollup/plugin-typescript";
 import terser from "@rollup/plugin-terser";
+import peerDepsExternal from "rollup-plugin-peer-deps-external";
+import resolve from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
+
+import packageJson from "./package.json" assert { type: "json" };
 
 export default {
   input: "src/index.ts",
   output: [
     {
-      file: "dist/bundle.js",
+      file: packageJson.main,
       format: "cjs",
+      sourcemap: true,
     },
     {
-      file: "dist/bundle.min.js",
-      format: "cjs",
-      name: "version",
-      plugins: [terser()],
+      file: packageJson.module,
+      format: "esm",
+      sourcemap: true,
     },
   ],
-  plugins: [typescript()],
+  plugins: [peerDepsExternal(), resolve(), commonjs(), typescript()],
 };
+
+// export default {
+//   input: "src/index.ts",
+//   output: [
+//     {
+//       file: "build/bundle.js",
+//       format: "cjs",
+//     },
+//     // {
+//     //   file: "build/bundle.min.js",
+//     //   format: "cjs",
+//     //   name: "version",
+//     //   plugins: [terser()],
+//     // },
+//   ],
+//   plugins: [typescript()],
+// };
