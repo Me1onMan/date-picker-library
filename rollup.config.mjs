@@ -3,6 +3,7 @@ import terser from "@rollup/plugin-terser";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
+import eslint from "@rollup/plugin-eslint";
 
 import packageJson from "./package.json" assert { type: "json" };
 
@@ -20,22 +21,6 @@ export default {
       sourcemap: true,
     },
   ],
-  plugins: [peerDepsExternal(), resolve(), commonjs(), typescript()],
+  plugins: [peerDepsExternal(), resolve(), commonjs(), typescript(), eslint()],
 };
 
-// export default {
-//   input: "src/index.ts",
-//   output: [
-//     {
-//       file: "build/bundle.js",
-//       format: "cjs",
-//     },
-//     // {
-//     //   file: "build/bundle.min.js",
-//     //   format: "cjs",
-//     //   name: "version",
-//     //   plugins: [terser()],
-//     // },
-//   ],
-//   plugins: [typescript()],
-// };

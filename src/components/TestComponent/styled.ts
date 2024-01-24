@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const TestComponentWrapper = styled.div`
   background-color: white;
@@ -16,3 +16,5 @@ export const TestComponentWrapper = styled.div`
     color: white;
   } */
 `;
+
+export const TestText = styled.p``;
