@@ -1,19 +1,23 @@
-const path = require("path");
+import type { StorybookConfig } from "@storybook/react-webpack5";
 
-module.exports = {
-  stories: ["../src/**/*.stories.tsx"],
-  // Add any Storybook addons you want here: https://storybook.js.org/addons/
-  addons: [],
-  webpackFinal: async (config) => {
-    config.module.rules.push({
-      test: /\.(ts|tsx)$/,
-      loader: require.resolve("babel-loader"),
-      options: {
-        presets: [["react-app", { flow: false, typescript: true }]],
+const config: StorybookConfig = {
+  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
+  addons: [
+    "@storybook/addon-links",
+    "@storybook/addon-essentials",
+    "@storybook/addon-onboarding",
+    "@storybook/addon-interactions",
+  ],
+  framework: {
+    name: "@storybook/react-webpack5",
+    options: {
+      builder: {
+        useSWC: true,
       },
-    });
-    config.resolve.extensions.push(".ts", ".tsx");
-
-    return config;
+    },
+  },
+  docs: {
+    autodocs: "tag",
   },
 };
+export default config;
