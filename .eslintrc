@@ -50,5 +50,24 @@
         "unnamedComponents": "arrow-function"
       }
     ]
-  }
+  },
+  "overrides": [
+		{
+			"files": ["*.ts", "*.tsx"],
+			"rules": {
+				"simple-import-sort/imports": [
+					"error",
+					{
+						"groups": [
+							["^react", "^@?\\w"],
+							["^(@|components)(/.*|$)"],
+							["^\\u0000"],
+							["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+							["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"]
+						]
+					}
+				]
+			}
+		}
+	]
 }
