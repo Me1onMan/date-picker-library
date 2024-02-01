@@ -21,6 +21,5 @@ export default {
       sourcemap: true,
     },
   ],
-  plugins: [peerDepsExternal(), resolve(), commonjs(), typescript(), eslint()],
+  plugins: [peerDepsExternal(), resolve(), commonjs(), typescript(), eslint(), terser()],
 };
-
