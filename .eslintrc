@@ -3,16 +3,12 @@
     "browser": true,
     "es2021": true
   },
-  "plugins": [
-    "react",
-    "eslint-plugin-simple-import-sort", 
-    "@typescript-eslint"
-  ],
+  "plugins": ["react", "eslint-plugin-simple-import-sort", "@typescript-eslint", "import"],
   "extends": [
-    "airbnb", 
-    "airbnb/hooks", 
-    "prettier", 
-    "plugin:prettier/recommended", 
+    "airbnb",
+    "airbnb/hooks",
+    "prettier",
+    "plugin:prettier/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended"
   ],
@@ -25,7 +21,8 @@
     "import/resolver": {
       "node": {
         "extensions": [".js", ".jsx", ".ts", ".tsx"]
-      }
+      },
+      "typescript": {}
     }
   },
   "rules": {
@@ -39,12 +36,9 @@
         "tsx": "never"
       }
     ],
-    "react/jsx-filename-extension": [
-      2, 
-      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
-    ],
+    "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
     "react/function-component-definition": [
-      "error", 
+      "error",
       {
         "namedComponents": "arrow-function",
         "unnamedComponents": "arrow-function"
@@ -52,22 +46,22 @@
     ]
   },
   "overrides": [
-		{
-			"files": ["*.ts", "*.tsx"],
-			"rules": {
-				"simple-import-sort/imports": [
-					"error",
-					{
-						"groups": [
-							["^react", "^@?\\w"],
-							["^(@|components)(/.*|$)"],
-							["^\\u0000"],
-							["^\\.\\.(?!/?$)", "^\\.\\./?$"],
-							["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"]
-						]
-					}
-				]
-			}
-		}
-	]
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "simple-import-sort/imports": [
+          "error",
+          {
+            "groups": [
+              ["^react", "^@?\\w"],
+              ["^(@|components)(/.*|$)"],
+              ["^\\u0000"],
+              ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+              ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"]
+            ]
+          }
+        ]
+      }
+    }
+  ]
 }
