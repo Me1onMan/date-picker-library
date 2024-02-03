@@ -1,3 +1,3 @@
-export interface IClearProps {}
+export interface IWeekdaysProps {}
 
-export interface IClearStyledProps {}
+export interface IWeekdaysStyledProps {}

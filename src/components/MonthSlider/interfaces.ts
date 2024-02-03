@@ -1,6 +1,11 @@
-export interface IClearProps {}
+export interface IMonthSliderProps {
+  year: number;
+  month: number;
+  goPrevMonth: () => void;
+  goNextMonth: () => void;
+}
 
-export interface IClearStyledProps {}
+export interface IMonthSliderStyledProps {}
 
 export interface IArrowBtnProps {
   src: string;

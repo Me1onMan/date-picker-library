@@ -1,3 +1,6 @@
-export interface IClearProps {}
+export interface IGridProps {
+  year: number;
+  month: number;
+}
 
-export interface IClearStyledProps {}
+export interface IGridStyledProps {}

@@ -5,10 +5,12 @@ import { ThemeProvider } from "styled-components";
 import { IDayProps } from "./interfaces";
 import Button from "./styled";
 
-const DayButton = ({ date, isWeekend = false }: IDayProps) => {
+const DayButton = ({ date, isWeekend = false, isDisabled = false }: IDayProps) => {
   return (
     <ThemeProvider theme={theme}>
-      <Button isWeekend={isWeekend}>{date.getDate()}</Button>
+      <Button isWeekend={isWeekend} disabled={isDisabled}>
+        {date.getDate()}
+      </Button>
     </ThemeProvider>
   );
 };

@@ -5,7 +5,10 @@ import MonthSlider from "./MonthSlider";
 const meta: Meta<typeof MonthSlider> = {
   title: "MonthSlider",
   component: MonthSlider,
-  args: {},
+  args: {
+    year: 2024,
+    month: 1,
+  },
   argTypes: {},
 };
 

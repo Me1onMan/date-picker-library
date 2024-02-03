@@ -8,12 +8,7 @@ const meta: Meta<typeof DayButton> = {
   args: {
     date: new Date(),
   },
-  argTypes: {
-    // color: {
-    //   control: "select",
-    //   options: ["default", "disabled", "hover", "selected", "midInterval", "edgeInterval"],
-    // },
-  },
+  argTypes: {},
 };
 
 export default meta;

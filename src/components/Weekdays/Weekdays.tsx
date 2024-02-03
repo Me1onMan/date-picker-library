@@ -1,16 +1,15 @@
 import React from "react";
 import theme from "@constants/theme";
+import WEEKDAY_NAMES from "@constants/weekdayNames";
 import { ThemeProvider } from "styled-components";
 
 import { Container, Weekday } from "./styled";
-
-const weekdayNames = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"];
 
 const Weekdays = () => {
   return (
     <ThemeProvider theme={theme}>
       <Container>
-        {weekdayNames.map((dayName) => (
+        {WEEKDAY_NAMES.map((dayName) => (
           <Weekday key={dayName}>{dayName}</Weekday>
         ))}
       </Container>

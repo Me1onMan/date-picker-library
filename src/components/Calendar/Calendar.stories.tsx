@@ -6,12 +6,7 @@ const meta: Meta<typeof Calendar> = {
   title: "Calendar",
   component: Calendar,
   args: {},
-  argTypes: {
-    // color: {
-    //   control: "select",
-    //   options: ["default", "disabled", "hover", "selected", "midInterval", "edgeInterval"],
-    // },
-  },
+  argTypes: {},
 };
 
 export default meta;

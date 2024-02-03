@@ -1,3 +1,3 @@
-export interface IClearProps {}
+export interface ICalendarProps {}
 
-export interface IClearStyledProps {}
+export interface ICalenderStyledProps {}

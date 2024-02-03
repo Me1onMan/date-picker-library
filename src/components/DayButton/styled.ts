@@ -17,6 +17,16 @@ const Button = styled.button<IDayStyledProps>`
   &:hover {
     background-color: ${({ theme }) => theme.colors.bg.gray};
   }
+
+  &:disabled {
+    cursor: default;
+
+    color: ${({ theme }) => theme.colors.text.lightGrayPrimary};
+  }
+
+  &:disabled:hover {
+    background-color: ${({ theme }) => theme.colors.bg.white};
+  }
 `;
 
 export default Button;

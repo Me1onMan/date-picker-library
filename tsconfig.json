@@ -17,6 +17,7 @@
       "@constants/*": ["constants/*"],
       "@utils/*": ["utils/*"],
     },
+    "typeRoots": ["./src/assets"],
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "build", "src/**/*.stories.tsx", "src/**/*.test.tsx"],

@@ -3,7 +3,12 @@
     "browser": true,
     "es2021": true
   },
-  "plugins": ["react", "eslint-plugin-simple-import-sort", "@typescript-eslint", "import"],
+  "plugins": [
+    "react", 
+    "eslint-plugin-simple-import-sort", 
+    "@typescript-eslint", 
+    "import"
+  ],
   "extends": [
     "airbnb",
     "airbnb/hooks",
