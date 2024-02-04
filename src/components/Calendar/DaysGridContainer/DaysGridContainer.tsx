@@ -1,5 +1,4 @@
 import React from "react";
-import DayButton from "@components/DayButton/DayButton";
 import theme from "@constants/theme";
 import {
   checkWeekend,
@@ -9,19 +8,23 @@ import {
 } from "@utils/calculateDates";
 import { ThemeProvider } from "styled-components";
 
+import DayButton from "./DayButton/DayButton";
+import Weekdays from "./Weekdays/Weekdays";
 import { IGridProps } from "./interfaces";
 import Grid from "./styled";
 
-const DaysGridContainer = ({ year, month }: IGridProps) => {
+const DaysGridContainer = ({ year, month, isSundayFirst }: IGridProps) => {
   const selectedYear = year;
   const selectedMonth = month;
 
-  const prevMonthDays = [...getMissingPrevDays(selectedYear, selectedMonth)];
+  const prevMonthDays = [...getMissingPrevDays(selectedYear, selectedMonth, isSundayFirst)];
   const currentMonthDays = [...getDaysSelectedMonth(selectedYear, selectedMonth)];
-  const nextMonthDays = [...getMissingNextDays(selectedYear, selectedMonth)];
+  const nextMonthDays = [...getMissingNextDays(selectedYear, selectedMonth, isSundayFirst)];
 
   return (
     <ThemeProvider theme={theme}>
+      <Weekdays isSundayFirst={isSundayFirst} />
+
       <Grid>
         {prevMonthDays.map((date) => (
           <DayButton date={date} isDisabled key={date.toString()} />

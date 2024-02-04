@@ -1,16 +1,16 @@
 import React, { FC, useState } from "react";
-import DaysGridContainer from "@components/DaysGridContainer/DaysGridContainer";
-import MonthSlider from "@components/MonthSlider/MonthSlider";
-import Weekdays from "@components/Weekdays/Weekdays";
 import theme from "@constants/theme";
 import { ThemeProvider } from "styled-components";
 
+import DaysGridContainer from "./DaysGridContainer/DaysGridContainer";
+import MonthSlider from "./MonthSlider/MonthSlider";
 import { ICalendarProps } from "./interfaces";
 import Container from "./styled";
 
 const Calendar: FC<ICalendarProps> = () => {
   const [selectedYear, setSelectedYear] = useState(2024);
   const [selectedMonth, setSelectedMonth] = useState(1);
+  const isSundayFirst = false;
 
   const goPrevMonth = () => {
     setSelectedYear((prevSM) => (selectedMonth === 0 ? prevSM - 1 : prevSM));
@@ -31,8 +31,11 @@ const Calendar: FC<ICalendarProps> = () => {
           goPrevMonth={goPrevMonth}
           goNextMonth={goNextMonth}
         />
-        <Weekdays />
-        <DaysGridContainer year={selectedYear} month={selectedMonth} />
+        <DaysGridContainer
+          year={selectedYear}
+          month={selectedMonth}
+          isSundayFirst={isSundayFirst}
+        />
       </Container>
     </ThemeProvider>
   );
