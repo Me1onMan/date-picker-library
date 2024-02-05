@@ -5,6 +5,7 @@ import {
   getDaysSelectedMonth,
   getMissingNextDays,
   getMissingPrevDays,
+  isDaysEqual,
 } from "@utils/calculateDates";
 
 import DayButton from "./DayButton/DayButton";
@@ -12,7 +13,7 @@ import Weekdays from "./Weekdays/Weekdays";
 import Grid from "./styled";
 
 const DaysGridContainer = () => {
-  const { isSundayFirst, selectedMonth, selectedYear } = useCalendar();
+  const { isSundayFirst, selectedDay, selectedMonth, selectedYear } = useCalendar();
 
   const prevMonthDays = [...getMissingPrevDays(selectedYear, selectedMonth, isSundayFirst)];
   const currentMonthDays = [...getDaysSelectedMonth(selectedYear, selectedMonth)];
@@ -26,7 +27,11 @@ const DaysGridContainer = () => {
           <DayButton date={date} isDisabled key={date.toString()} />
         ))}
         {currentMonthDays.map((date) => (
-          <DayButton date={date} key={date.toString()} />
+          <DayButton
+            date={date}
+            isSelected={isDaysEqual(date, selectedDay)}
+            key={date.toString()}
+          />
         ))}
         {nextMonthDays.map((date) => (
           <DayButton date={date} isDisabled key={date.toString()} />

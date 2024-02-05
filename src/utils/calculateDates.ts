@@ -76,10 +76,10 @@ export const checkWeekend = (date: Date) => {
   return !!(dayOfWeek === 0 || dayOfWeek === 6);
 };
 
-export const isToday = (date: Date): boolean => {
-  const today = new Date();
-  if (date.getFullYear() !== today.getFullYear()) return false;
-  if (date.getMonth() !== today.getMonth()) return false;
-  if (date.getDate() !== today.getDate()) return false;
+export const isDaysEqual = (date1: Date, date2: Date): boolean => {
+  if (!date1 || !date2) return false;
+  if (date1.getFullYear() !== date2.getFullYear()) return false;
+  if (date1.getMonth() !== date2.getMonth()) return false;
+  if (date1.getDate() !== date2.getDate()) return false;
   return true;
 };
