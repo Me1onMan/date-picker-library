@@ -75,3 +75,11 @@ export const checkWeekend = (date: Date) => {
   const dayOfWeek = date.getDay();
   return !!(dayOfWeek === 0 || dayOfWeek === 6);
 };
+
+export const isToday = (date: Date): boolean => {
+  const today = new Date();
+  if (date.getFullYear() !== today.getFullYear()) return false;
+  if (date.getMonth() !== today.getMonth()) return false;
+  if (date.getDate() !== today.getDate()) return false;
+  return true;
+};
