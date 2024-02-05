@@ -1,9 +1,19 @@
-import COLORS from "./themes/colors";
-import SIZE from "./themes/size";
+import BORDERS, { IBorder } from "./themes/border";
+import COLORS, { IColors } from "./themes/colors";
+import FONT, { IFont } from "./themes/font";
+import SIZES, { ISize } from "./themes/size";
 
-const theme = {
-  size: { ...SIZE },
-  colors: { ...COLORS },
+interface ITheme {
+  color: IColors;
+  font: IFont;
+  size: ISize;
+  border: IBorder;
+}
+const theme: ITheme = {
+  size: { ...SIZES },
+  font: { ...FONT },
+  color: { ...COLORS },
+  border: { ...BORDERS },
 };
 
 export default theme;

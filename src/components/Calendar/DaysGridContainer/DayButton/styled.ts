@@ -5,27 +5,29 @@ import { IDayStyledProps } from "./interfaces";
 const Button = styled.button<IDayStyledProps>`
   cursor: pointer;
 
-  width: ${({ theme }) => theme.size.px32};
-  height: ${({ theme }) => theme.size.px32};
+  width: ${({ theme }) => theme.size.l};
+  height: ${({ theme }) => theme.size.l};
 
-  background-color: ${({ theme }) => theme.colors.bg.white};
+  background-color: ${({ theme }) => theme.color.white};
   border-color: transparent;
-  border-radius: ${({ theme }) => theme.size.px8};
+  border: ${({ isToday, theme }) =>
+    isToday ? `${theme.border.line.primary} ${theme.color.daySelected}` : "transparent"};
+  border-radius: ${({ theme }) => theme.border.radius.primary};
 
-  color: ${({ isWeekend, theme }) => (isWeekend ? "red" : theme.colors.text.black)};
+  color: ${({ isWeekend, theme }) => (isWeekend ? "red" : theme.color.textSecondary)};
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.bg.gray};
+    background-color: ${({ theme }) => theme.color.hover};
   }
 
   &:disabled {
     cursor: default;
 
-    color: ${({ theme }) => theme.colors.text.lightGrayPrimary};
+    color: ${({ theme }) => theme.color.grayPrimary};
   }
 
   &:disabled:hover {
-    background-color: ${({ theme }) => theme.colors.bg.white};
+    background-color: ${({ theme }) => theme.color.white};
   }
 `;
 

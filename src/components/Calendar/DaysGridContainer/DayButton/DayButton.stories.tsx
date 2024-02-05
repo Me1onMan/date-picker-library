@@ -6,7 +6,7 @@ const meta: Meta<typeof DayButton> = {
   title: "DayButton",
   component: DayButton,
   args: {
-    date: new Date(),
+    date: new Date(2024, 1, 5),
   },
   argTypes: {},
 };

@@ -5,37 +5,43 @@ import { IArrowBtnProps } from "./interfaces";
 export const SliderContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
   width: 224px;
 `;
 
 export const MiddleContainer = styled.div`
   display: flex;
-  gap: 8px;
+  gap: ${({ theme }) => theme.size.s};
 `;
 
 export const Button = styled.button`
   cursor: pointer;
 
-  padding: 5px;
+  padding: ${({ theme }) => theme.size.s};
 
-  background-color: ${({ theme }) => theme.colors.bg.white};
+  background-color: ${({ theme }) => theme.color.white};
   border: none;
-  border-radius: 8px;
+  border-radius: ${({ theme }) => theme.border.radius.primary};
+
+  font-size: ${({ theme }) => theme.font.size.m};
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.bg.gray};
+    background-color: ${({ theme }) => theme.color.hover};
   }
 `;
 
 export const ArrowButton = styled.img<IArrowBtnProps>`
-  src: ${({ src }) => src};
+  width: ${({ theme }) => theme.size.l};
+  height: ${({ theme }) => theme.size.l};
+
+  padding: ${({ theme }) => theme.size.s};
 
   cursor: pointer;
 
-  border-radius: 8px;
+  border-radius: ${({ theme }) => theme.border.radius.primary};
 
   &:hover {
-    background-color: ${({ theme }) => theme.colors.bg.gray};
+    background-color: ${({ theme }) => theme.color.hover};
   }
 `;

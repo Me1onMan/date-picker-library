@@ -1,18 +1,16 @@
 import React from "react";
-import theme from "@constants/theme";
-import { ThemeProvider } from "styled-components";
+import withTheme from "@decorators/withTheme";
+import { checkWeekend, isToday } from "@utils/calculateDates";
 
 import { IDayProps } from "./interfaces";
 import Button from "./styled";
 
-const DayButton = ({ date, isWeekend = false, isDisabled = false }: IDayProps) => {
+const DayButton = ({ date, isDisabled = false }: IDayProps) => {
   return (
-    <ThemeProvider theme={theme}>
-      <Button isWeekend={isWeekend} disabled={isDisabled}>
-        {date.getDate()}
-      </Button>
-    </ThemeProvider>
+    <Button isWeekend={checkWeekend(date)} isToday={isToday(date)} disabled={isDisabled}>
+      {date.getDate()}
+    </Button>
   );
 };
 
-export default DayButton;
+export default withTheme(DayButton);

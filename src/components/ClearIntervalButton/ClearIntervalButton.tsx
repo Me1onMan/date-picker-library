@@ -1,15 +1,10 @@
 import React from "react";
-import theme from "@constants/theme";
-import { ThemeProvider } from "styled-components";
+import withTheme from "@decorators/withTheme";
 
 import Button from "./styled";
 
 const ClearIntervalButton = () => {
-  return (
-    <ThemeProvider theme={theme}>
-      <Button>Clear Interval</Button>
-    </ThemeProvider>
-  );
+  return <Button>Clear Interval</Button>;
 };
 
-export default ClearIntervalButton;
+export default withTheme(ClearIntervalButton);

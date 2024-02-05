@@ -1,7 +1,14 @@
-const SIZE = {
-  px8: "8px",
-  px16: "16px",
-  px32: "32px",
+export interface ISize {
+  s: string;
+  m: string;
+  l: string;
+  [code: string]: string;
+}
+
+const SIZES: ISize = {
+  s: "8px",
+  m: "16px",
+  l: "32px",
 };
 
-export default SIZE;
+export default SIZES;

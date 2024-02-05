@@ -7,8 +7,8 @@ const Container = styled.div`
 
   padding: 10px;
 
-  border: 1px solid #e1e1e1;
-  border-radius: 8px;
+  border: ${({ theme }) => theme.border.line.primary} ${({ theme }) => theme.color.border};
+  border-radius: ${({ theme }) => theme.border.radius.primary};
 `;
 
 export default Container;

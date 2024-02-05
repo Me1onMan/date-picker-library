@@ -8,8 +8,12 @@ export const Container = styled.div`
 `;
 
 export const Weekday = styled.p`
-  width: 32px;
-  height: 32px;
+  width: ${({ theme }) => theme.size.l};
+  height: ${({ theme }) => theme.size.l};
 
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: ${({ theme }) => theme.font.size.m};
 `;

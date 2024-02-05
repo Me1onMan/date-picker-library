@@ -6,27 +6,24 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 8px;
+  gap: ${({ theme }) => theme.size.s};
 
-  padding: 8px 15px;
+  padding: ${({ theme }) => theme.size.s} ${({ theme }) => theme.size.m};
 
-  border: 1px solid ${({ theme }) => theme.colors.border.gray};
-  border-radius: 8px;
+  border: ${({ theme }) => theme.border.line.primary};
+  border-color: ${({ theme }) => theme.color.border};
+  border-radius: ${({ theme }) => theme.border.radius.primary};
 `;
 
 export const Button = styled.img<IButtonProps>`
-  src: ${({ src }) => src};
-
   cursor: pointer;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.bg.gray};
-  }
 `;
 
 export const Input = styled.input`
   width: 172px;
   height: 20px;
+
+  font-size: ${({ theme }) => theme.font.size.l};
 
   border: none;
 `;
