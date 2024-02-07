@@ -1,7 +1,7 @@
 import React from "react";
+import Task from "@components/Task/Task";
 import withTheme from "@decorators/withTheme";
 
-import Task from "./Task/Task";
 import {
   AddButton,
   CloseButton,

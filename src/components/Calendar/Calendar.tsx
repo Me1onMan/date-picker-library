@@ -1,9 +1,9 @@
 import React, { FC } from "react";
+import DaysGridContainer from "@components/DaysGridContainer/DaysGridContainer";
+import MonthSlider from "@components/MonthSlider/MonthSlider";
 import withTheme from "@decorators/withTheme";
 import { useCalendar } from "@providers/CalendarProvider";
 
-import DaysGridContainer from "./DaysGridContainer/DaysGridContainer";
-import MonthSlider from "./MonthSlider/MonthSlider";
 import { ICalendarProps } from "./interfaces";
 import Container from "./styled";
 

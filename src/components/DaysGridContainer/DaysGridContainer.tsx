@@ -1,4 +1,6 @@
 import React from "react";
+import DayButton from "@components/DayButton/DayButton";
+import Weekdays from "@components/Weekdays/Weekdays";
 import withTheme from "@decorators/withTheme";
 import { useCalendar } from "@providers/CalendarProvider";
 import {
@@ -8,8 +10,6 @@ import {
   isDaysEqual,
 } from "@utils/calculateDates";
 
-import DayButton from "./DayButton/DayButton";
-import Weekdays from "./Weekdays/Weekdays";
 import Grid from "./styled";
 
 const DaysGridContainer = () => {
