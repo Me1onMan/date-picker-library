@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 import React, { createContext, FC, ReactNode, useContext, useState } from "react";
 
-interface ISelectedDayContext {
+export interface ISelectedDayContext {
   selectedDay?: Date;
   setSelectedDay: (_: Date) => void;
 }
@@ -10,7 +10,7 @@ interface ISelectedDayProviderProps {
   children: ReactNode;
 }
 
-const SelectedDayContext = createContext<ISelectedDayContext>({
+export const SelectedDayContext = createContext<ISelectedDayContext>({
   selectedDay: undefined,
   setSelectedDay: () => undefined,
 });

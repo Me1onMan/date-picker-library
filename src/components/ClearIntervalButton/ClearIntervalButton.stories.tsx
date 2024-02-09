@@ -5,7 +5,9 @@ import ClearIntervalButton from "./ClearIntervalButton";
 const meta: Meta<typeof ClearIntervalButton> = {
   title: "ClearIntervalButton",
   component: ClearIntervalButton,
-  args: {},
+  args: {
+    text: "Add task",
+  },
   argTypes: {},
 };
 

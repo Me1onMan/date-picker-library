@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Button = styled.button`
   cursor: pointer;
 
-  width: 224px;
+  width: 100%;
   height: 36px;
 
   background-color: ${({ theme }) => theme.color.white};

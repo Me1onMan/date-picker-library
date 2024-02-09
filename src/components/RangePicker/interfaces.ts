@@ -1,5 +1,5 @@
 import { ComponentType } from "react";
 
-export interface IDatePickerProps {
+export interface IRangePickerProps {
   CalendarView: ComponentType;
 }

@@ -5,7 +5,10 @@ import ModalTasks from "./ModalTasks";
 const meta: Meta<typeof ModalTasks> = {
   title: "ModalTasks",
   component: ModalTasks,
-  args: {},
+  args: {
+    date: new Date(),
+    onClose: () => undefined,
+  },
   argTypes: {},
 };
 

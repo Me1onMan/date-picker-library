@@ -2,15 +2,15 @@ import React, { ChangeEvent, FC, useState } from "react";
 import calendarIcon from "@assets/Calendar.svg";
 import clearIcon from "@assets/Clear.svg";
 import withTheme from "@decorators/withTheme";
-import { useCalendar } from "@providers/CalendarProvider";
+// import { useCalendar } from "@providers/CalendarProvider";
 import formatDate from "@utils/formatDate";
 import formatInput from "@utils/formatInput";
 
 import { IInputProps } from "./interfaces";
 import { Button, Container, Input } from "./styled";
 
-const DateInput: FC<IInputProps> = ({ onClick }) => {
-  const { selectedDay, setSelectedDay } = useCalendar();
+const DateInput: FC<IInputProps> = ({ onClick, selectedDay, setSelectedDay }) => {
+  // const { selectedDay, setSelectedDay } = useCalendar();
   const [inputValue, setInputValue] = useState<string>();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
