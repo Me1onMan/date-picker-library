@@ -4,6 +4,7 @@ import { useCalendar } from "@providers/CalendarProvider";
 import { useRange } from "@providers/RangeProvider";
 import { useSelectedDay } from "@providers/SelectedDayProvider";
 import { checkWeekend, isDaysEqual } from "@utils/calculateDates";
+import { getRangeType } from "@utils/getRangeType";
 
 import { IDayProps } from "./interfaces";
 import Button from "./styled";
@@ -11,7 +12,7 @@ import Button from "./styled";
 const DayButton = ({ date, isDisabled = false, isWithWeekends }: IDayProps) => {
   const { today } = useCalendar();
   const { selectedDay, setSelectedDay } = useSelectedDay();
-  const { setRangeOnClick } = useRange();
+  const { setRangeOnClick, startDate, endDate } = useRange();
 
   const isSelected = isDaysEqual(date, selectedDay);
 
@@ -27,6 +28,7 @@ const DayButton = ({ date, isDisabled = false, isWithWeekends }: IDayProps) => {
       $isWeekend={isWithWeekends && checkWeekend(date)}
       $isToday={isDaysEqual(date, today)}
       $isSelected={isSelected}
+      $rangeType={getRangeType(date, startDate, endDate)}
       disabled={isDisabled}
       onClick={handleClick}
     >

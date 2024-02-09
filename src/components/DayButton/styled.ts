@@ -1,3 +1,5 @@
+/* eslint-disable no-nested-ternary */
+import { getDayBgColor, getDayBorderRadius, getTextColor } from "@utils/calculateStyles";
 import styled from "styled-components";
 
 import { IDayStyledProps } from "./interfaces";
@@ -8,17 +10,25 @@ const Button = styled.button<IDayStyledProps>`
   width: ${({ theme }) => theme.size.l};
   height: ${({ theme }) => theme.size.l};
 
-  background-color: ${({ $isSelected, theme }) =>
-    $isSelected ? theme.color.daySelected : theme.color.white};
+  /* background-color: ${({ $isSelected, theme }) =>
+    $isSelected ? theme.color.daySelected : theme.color.white}; */
+  background-color: ${({ $isSelected, $rangeType }) =>
+    $rangeType ? getDayBgColor($rangeType) : getDayBgColor($isSelected)};
   border-color: transparent;
   border: ${({ $isToday, theme }) =>
     $isToday ? `${theme.border.line.primary} ${theme.color.daySelected}` : "transparent"};
-  border-radius: ${({ theme }) => theme.border.radius.primary};
+  border-radius: ${({ $rangeType }) => getDayBorderRadius($rangeType)};
 
-  color: ${({ $isWeekend, theme }) => ($isWeekend ? "red" : theme.color.textSecondary)};
+  color: ${({ $isSelected, $rangeType, $isWeekend }) =>
+    $rangeType ? getTextColor($rangeType, $isWeekend) : getTextColor($isSelected, $isWeekend)};
 
   &:hover {
-    background-color: ${({ theme }) => theme.color.hover};
+    background-color: ${({ $isSelected, $rangeType, theme }) =>
+      $rangeType
+        ? getDayBgColor($rangeType)
+        : $isSelected
+          ? getDayBgColor($isSelected)
+          : theme.color.white};
   }
 
   &:disabled {
@@ -28,7 +38,12 @@ const Button = styled.button<IDayStyledProps>`
   }
 
   &:disabled:hover {
-    background-color: ${({ theme }) => theme.color.white};
+    background-color: ${({ $isSelected, $rangeType, theme }) =>
+      $rangeType
+        ? getDayBgColor($rangeType)
+        : $isSelected
+          ? getDayBgColor($isSelected)
+          : theme.color.white};
   }
 `;
 

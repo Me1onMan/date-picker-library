@@ -1,3 +1,5 @@
+import { RangeType } from "@utils/getRangeType";
+
 export interface IDayProps {
   date: Date;
   isDisabled?: boolean;
@@ -9,4 +11,5 @@ export interface IDayStyledProps {
   $isDisabled?: boolean;
   $isSelected?: boolean;
   $isWeekend?: boolean;
+  $rangeType?: RangeType;
 }
