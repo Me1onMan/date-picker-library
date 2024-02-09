@@ -1,14 +1,18 @@
-import { isDaysEqual, isFirstDateGreaterOrEqual } from "./calculateDates";
+import { isDaysEqual } from "./calculateDates";
 
 export type RangeType = "start" | "middle" | "end";
 
 export const getRangeType = (day: Date, startDate: Date, endDate: Date): RangeType => {
-  if (!day || !startDate || !endDate) return undefined;
+  if (!day) return undefined;
 
-  if (isFirstDateGreaterOrEqual(day, startDate)) {
-    if (isFirstDateGreaterOrEqual(endDate, day)) {
-      if (isDaysEqual(day, startDate)) return "start";
-      if (isDaysEqual(day, endDate)) return "end";
+  if (!startDate) return undefined;
+  if (isDaysEqual(day, startDate)) return "start";
+
+  if (!endDate) return undefined;
+  if (isDaysEqual(day, endDate)) return "end";
+
+  if (day.getTime() >= startDate.getTime()) {
+    if (endDate.getTime() >= day.getTime()) {
       return "middle";
     }
   }
