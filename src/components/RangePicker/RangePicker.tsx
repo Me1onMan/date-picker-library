@@ -1,4 +1,5 @@
 import React, { FC, useState } from "react";
+import ClearIntervalButton from "@components/ClearIntervalButton/ClearIntervalButton";
 import DateInput from "@components/DateInput/DateInput";
 import withTheme from "@decorators/withTheme";
 import CalendarProvider from "@providers/CalendarProvider";
@@ -22,10 +23,19 @@ const RangePicker: FC<IRangePickerProps> = ({ CalendarView }) => {
       return;
     }
     if (!endDate) {
+      if (startDate.getTime() > clickedDate.getTime()) {
+        setStartDate(clickedDate);
+        return;
+      }
       setEndDate(clickedDate);
       return;
     }
     setStartDate(clickedDate);
+    setEndDate(undefined);
+  };
+
+  const clearInterval = () => {
+    setStartDate(undefined);
     setEndDate(undefined);
   };
 
@@ -47,6 +57,9 @@ const RangePicker: FC<IRangePickerProps> = ({ CalendarView }) => {
           <Label>To</Label>
           <DateInput onClick={handleClick} selectedDay={endDate} setSelectedDay={setEndDate} />
           {isOpen && <CalendarView />}
+          {(startDate || endDate) && (
+            <ClearIntervalButton text="Clear interval" onClick={clearInterval} />
+          )}
         </Container>
       </RangeContext.Provider>
     </CalendarProvider>
