@@ -1,6 +1,7 @@
 export interface IDayProps {
   date: Date;
   isDisabled?: boolean;
+  isWithWeekends?: boolean;
 }
 
 export interface IDayStyledProps {

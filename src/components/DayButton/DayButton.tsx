@@ -8,7 +8,7 @@ import { checkWeekend, isDaysEqual } from "@utils/calculateDates";
 import { IDayProps } from "./interfaces";
 import Button from "./styled";
 
-const DayButton = ({ date, isDisabled = false }: IDayProps) => {
+const DayButton = ({ date, isDisabled = false, isWithWeekends }: IDayProps) => {
   const { today } = useCalendar();
   const { selectedDay, setSelectedDay } = useSelectedDay();
   const { setRangeOnClick } = useRange();
@@ -24,7 +24,7 @@ const DayButton = ({ date, isDisabled = false }: IDayProps) => {
 
   return (
     <Button
-      $isWeekend={checkWeekend(date)}
+      $isWeekend={isWithWeekends && checkWeekend(date)}
       $isToday={isDaysEqual(date, today)}
       $isSelected={isSelected}
       disabled={isDisabled}
