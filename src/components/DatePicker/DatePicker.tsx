@@ -9,7 +9,7 @@ import { Container, Label } from "./styled";
 
 const DatePicker: FC<IDatePickerProps> = ({ CalendarView }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedDay, setSelectedDay] = useState<Date>(new Date(2024, 1, 12));
+  const [selectedDay, setSelectedDay] = useState<Date>();
   const handleClick = () => {
     setIsOpen((prev) => !prev);
   };

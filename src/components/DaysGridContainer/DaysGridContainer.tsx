@@ -12,8 +12,8 @@ import {
 import { IGridProps } from "./interfaces";
 import Grid from "./styled";
 
-const DaysGridContainer: FC<IGridProps> = () => {
-  const { isSundayFirst, selectedMonth, selectedYear } = useCalendar();
+const DaysGridContainer: FC<IGridProps> = ({ isSundayFirst }) => {
+  const { selectedMonth, selectedYear } = useCalendar();
 
   const prevMonthDays = [...getMissingPrevDays(selectedYear, selectedMonth, isSundayFirst)];
   const currentMonthDays = [...getDaysSelectedMonth(selectedYear, selectedMonth)];

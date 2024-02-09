@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 
 import Decorator from "../../decorators/Decorator";
+import withSundayFirst from "../../decorators/withSundayFirst";
 import withTodos from "../../decorators/withTodos";
 
 import DatePicker from "./DatePicker";
@@ -8,6 +9,7 @@ import DatePicker from "./DatePicker";
 const calendar = new Decorator();
 const DefaultCalendar = calendar.getCalendar();
 calendar.addDecorator(withTodos);
+calendar.addDecorator(withSundayFirst);
 const TodoCalendar = calendar.getCalendar();
 
 const meta: Meta<typeof DatePicker> = {
