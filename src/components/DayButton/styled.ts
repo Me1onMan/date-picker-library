@@ -19,8 +19,10 @@ const Button = styled.button<IDayStyledProps>`
     $isToday ? `${theme.border.line.primary} ${theme.color.daySelected}` : "transparent"};
   border-radius: ${({ $rangeType }) => getDayBorderRadius($rangeType)};
 
-  color: ${({ $isSelected, $rangeType, $isWeekend }) =>
-    $rangeType ? getTextColor($rangeType, $isWeekend) : getTextColor($isSelected, $isWeekend)};
+  color: ${({ $isSelected, $rangeType, $isWeekend, $isHoliday }) =>
+    $rangeType
+      ? getTextColor($rangeType, $isWeekend || $isHoliday)
+      : getTextColor($isSelected, $isWeekend || $isHoliday)};
 
   &:hover {
     background-color: ${({ $isSelected, $rangeType, theme }) =>

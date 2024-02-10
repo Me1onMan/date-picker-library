@@ -4,6 +4,7 @@ export interface IDayProps {
   date: Date;
   isDisabled?: boolean;
   isWithWeekends?: boolean;
+  isWithHolidays?: boolean;
 }
 
 export interface IDayStyledProps {
@@ -11,5 +12,6 @@ export interface IDayStyledProps {
   $isDisabled?: boolean;
   $isSelected?: boolean;
   $isWeekend?: boolean;
+  $isHoliday?: boolean;
   $rangeType?: RangeType;
 }

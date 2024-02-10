@@ -12,7 +12,7 @@ import {
 import { IGridProps } from "./interfaces";
 import Grid from "./styled";
 
-const DaysGridContainer: FC<IGridProps> = ({ isSundayFirst, isWithWeekends }) => {
+const DaysGridContainer: FC<IGridProps> = ({ isSundayFirst, isWithWeekends, isWithHolidays }) => {
   const { selectedMonth, selectedYear } = useCalendar();
 
   const prevMonthDays = [...getMissingPrevDays(selectedYear, selectedMonth, isSundayFirst)];
@@ -27,7 +27,12 @@ const DaysGridContainer: FC<IGridProps> = ({ isSundayFirst, isWithWeekends }) =>
           <DayButton date={date} isDisabled key={date.toString()} />
         ))}
         {currentMonthDays.map((date) => (
-          <DayButton date={date} isWithWeekends={isWithWeekends} key={date.toString()} />
+          <DayButton
+            date={date}
+            isWithWeekends={isWithWeekends}
+            isWithHolidays={isWithHolidays}
+            key={date.toString()}
+          />
         ))}
         {nextMonthDays.map((date) => (
           <DayButton date={date} isDisabled key={date.toString()} />

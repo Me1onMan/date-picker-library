@@ -5,7 +5,7 @@ import React, { ComponentType, FC } from "react";
 const withHolidays =
   <P extends object>(Component: ComponentType<P>): FC<P> =>
   (props: P) => {
-    return <Component {...props} />;
+    return <Component {...props} isWithHolidays />;
   };
 
 export default withHolidays;

@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 
 import Decorator from "../../decorators/Decorator";
+import withHolidays from "../../decorators/withHolidays";
 import withSundayFirst from "../../decorators/withSundayFirst";
 import withTodos from "../../decorators/withTodos";
 import withWeekends from "../../decorators/withWeekends";
@@ -8,6 +9,7 @@ import withWeekends from "../../decorators/withWeekends";
 import DatePicker from "./DatePicker";
 
 const calendar = new Decorator();
+calendar.addDecorator(withHolidays);
 const DefaultCalendar = calendar.getCalendar();
 calendar.addDecorator(withTodos);
 calendar.addDecorator(withSundayFirst);

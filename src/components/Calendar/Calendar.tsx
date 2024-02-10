@@ -7,7 +7,11 @@ import { useCalendar } from "@providers/CalendarProvider";
 import { ICalendarProps } from "./interfaces";
 import Container from "./styled";
 
-const Calendar: FC<ICalendarProps> = ({ isSundayFirst = false, isWithWeekends = false }) => {
+const Calendar: FC<ICalendarProps> = ({
+  isSundayFirst = false,
+  isWithWeekends = false,
+  isWithHolidays = false,
+}) => {
   const { selectedYear, setSelectedYear, selectedMonth, setSelectedMonth } = useCalendar();
   const goPrevMonth = () => {
     setSelectedYear(selectedMonth === 0 ? selectedYear - 1 : selectedYear);
@@ -27,7 +31,11 @@ const Calendar: FC<ICalendarProps> = ({ isSundayFirst = false, isWithWeekends = 
         goPrevMonth={goPrevMonth}
         goNextMonth={goNextMonth}
       />
-      <DaysGridContainer isSundayFirst={isSundayFirst} isWithWeekends={isWithWeekends} />
+      <DaysGridContainer
+        isSundayFirst={isSundayFirst}
+        isWithWeekends={isWithWeekends}
+        isWithHolidays={isWithHolidays}
+      />
     </Container>
   );
 };
