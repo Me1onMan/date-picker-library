@@ -99,11 +99,17 @@ export const isMonthAndDayEqual = (date1: Date, date2: Date): boolean => {
   return true;
 };
 
-export const isFirstDateGreaterOrEqual = (date1: Date, date2: Date) => {
+export const isFirstDateGreaterOrEqual = (date1: Date, date2: Date): boolean => {
   if (!date1 || !date2) return false;
 
   const first = new Date(date1).getTime();
   const second = new Date(date2).getTime();
 
   return first >= second;
+};
+
+export const isDateInRange = (date: Date, minDate: Date, maxDate: Date): boolean => {
+  if (minDate && date.getTime() < minDate.getTime()) return false;
+  if (maxDate && date.getTime() > maxDate.getTime()) return false;
+  return true;
 };

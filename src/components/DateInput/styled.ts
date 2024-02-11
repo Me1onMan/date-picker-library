@@ -27,3 +27,8 @@ export const Input = styled.input`
 
   border: none;
 `;
+
+export const ErrorMessage = styled.p`
+  font-size: ${({ theme }) => theme.font.size.s};
+  color: ${({ theme }) => theme.color.red};
+`;

@@ -40,3 +40,12 @@ export const withTodo: Story = {
     CalendarView: TodoCalendar,
   },
 };
+
+export const withLimits: Story = {
+  args: {
+    ...meta.args,
+    CalendarView: DefaultCalendar,
+    minDate: new Date(2024, 1, 10),
+    maxDate: new Date(2024, 1, 20),
+  },
+};
