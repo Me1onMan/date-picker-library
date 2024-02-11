@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useCallback, useMemo, useState } from "react";
 import DateInput from "@components/DateInput/DateInput";
 import FunctionalButton from "@components/FunctionalButton/FunctionalButton";
 import withTheme from "@decorators/withTheme";
@@ -10,8 +10,7 @@ import { IRangePickerProps } from "./interfaces";
 import { Container, Label } from "./styled";
 
 const RangePicker: FC<IRangePickerProps> = ({ CalendarView, minDate, maxDate }) => {
-  // eslint-disable-next-line react/jsx-no-constructed-context-values
-  const limitsValue = { minDate, maxDate };
+  const limitsValue = useMemo(() => ({ minDate, maxDate }), [minDate, maxDate]);
   const [isOpen, setIsOpen] = useState(false);
   const [startDate, setStartDate] = useState<Date>();
   const [endDate, setEndDate] = useState<Date>();
@@ -20,36 +19,41 @@ const RangePicker: FC<IRangePickerProps> = ({ CalendarView, minDate, maxDate }) 
     setIsOpen((prev) => !prev);
   };
 
-  const setRangeOnClick = (clickedDate: Date) => {
-    if (!startDate) {
-      setStartDate(clickedDate);
-      return;
-    }
-    if (!endDate) {
-      if (startDate.getTime() > clickedDate.getTime()) {
+  const setRangeOnClick = useCallback(
+    (clickedDate: Date) => {
+      if (!startDate) {
         setStartDate(clickedDate);
         return;
       }
-      setEndDate(clickedDate);
-      return;
-    }
-    setStartDate(clickedDate);
-    setEndDate(undefined);
-  };
+      if (!endDate) {
+        if (startDate.getTime() > clickedDate.getTime()) {
+          setStartDate(clickedDate);
+          return;
+        }
+        setEndDate(clickedDate);
+        return;
+      }
+      setStartDate(clickedDate);
+      setEndDate(undefined);
+    },
+    [startDate, endDate],
+  );
 
   const clearInterval = () => {
     setStartDate(undefined);
     setEndDate(undefined);
   };
 
-  // eslint-disable-next-line react/jsx-no-constructed-context-values
-  const dayValue: IRangeContext = {
-    startDate,
-    endDate,
-    setStartDate,
-    setEndDate,
-    setRangeOnClick,
-  };
+  const dayValue: IRangeContext = useMemo(
+    () => ({
+      startDate,
+      endDate,
+      setStartDate,
+      setEndDate,
+      setRangeOnClick,
+    }),
+    [startDate, endDate, setRangeOnClick],
+  );
 
   return (
     <CalendarProvider>

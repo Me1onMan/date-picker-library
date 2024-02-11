@@ -1,5 +1,4 @@
-/* eslint-disable react/jsx-no-constructed-context-values */
-import React, { FC, useState } from "react";
+import React, { FC, useMemo, useState } from "react";
 import DateInput from "@components/DateInput/DateInput";
 import withTheme from "@decorators/withTheme";
 import CalendarProvider from "@providers/CalendarProvider";
@@ -10,7 +9,7 @@ import { IDatePickerProps } from "./interfaces";
 import { Container, Label } from "./styled";
 
 const DatePicker: FC<IDatePickerProps> = ({ CalendarView, minDate, maxDate }) => {
-  const limitsValue = { minDate, maxDate };
+  const limitsValue = useMemo(() => ({ minDate, maxDate }), [minDate, maxDate]);
 
   const [isOpen, setIsOpen] = useState(false);
   const [selectedDay, setSelectedDay] = useState<Date>();
@@ -18,11 +17,13 @@ const DatePicker: FC<IDatePickerProps> = ({ CalendarView, minDate, maxDate }) =>
     setIsOpen((prev) => !prev);
   };
 
-  // eslint-disable-next-line react/jsx-no-constructed-context-values
-  const dayValue: ISelectedDayContext = {
-    selectedDay,
-    setSelectedDay,
-  };
+  const dayValue: ISelectedDayContext = useMemo(
+    () => ({
+      selectedDay,
+      setSelectedDay,
+    }),
+    [selectedDay],
+  );
 
   return (
     <CalendarProvider>

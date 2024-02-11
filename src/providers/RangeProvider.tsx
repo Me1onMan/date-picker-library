@@ -1,5 +1,12 @@
-/* eslint-disable react/jsx-no-constructed-context-values */
-import React, { createContext, FC, ReactNode, useContext, useState } from "react";
+import React, {
+  createContext,
+  FC,
+  ReactNode,
+  useCallback,
+  useContext,
+  useMemo,
+  useState,
+} from "react";
 
 export interface IRangeContext {
   startDate: Date;
@@ -29,26 +36,32 @@ const RangeProvider: FC<IRangeProviderProps> = ({ children }) => {
   const [startDate, setStartDate] = useState(undefined);
   const [endDate, setEndDate] = useState(undefined);
 
-  const setRangeOnClick = (clickedDay: Date) => {
-    if (!startDate) {
+  const setRangeOnClick = useCallback(
+    (clickedDay: Date) => {
+      if (!startDate) {
+        setStartDate(clickedDay);
+        return;
+      }
+      if (!endDate) {
+        setEndDate(clickedDay);
+        return;
+      }
       setStartDate(clickedDay);
-      return;
-    }
-    if (!endDate) {
-      setEndDate(clickedDay);
-      return;
-    }
-    setStartDate(clickedDay);
-    setEndDate(undefined);
-  };
+      setEndDate(undefined);
+    },
+    [startDate, endDate],
+  );
 
-  const rangeValues: IRangeContext = {
-    startDate,
-    setStartDate,
-    endDate,
-    setEndDate,
-    setRangeOnClick,
-  };
+  const rangeValues: IRangeContext = useMemo(
+    () => ({
+      startDate,
+      setStartDate,
+      endDate,
+      setEndDate,
+      setRangeOnClick,
+    }),
+    [startDate, endDate, setRangeOnClick],
+  );
   return <RangeContext.Provider value={rangeValues}>{children}</RangeContext.Provider>;
 };
 

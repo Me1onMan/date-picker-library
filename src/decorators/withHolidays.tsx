@@ -1,11 +1,12 @@
-/* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable react/display-name */
 import React, { ComponentType, FC } from "react";
 
-const withHolidays =
-  <P extends object>(Component: ComponentType<P>): FC<P> =>
-  (props: P) => {
-    return <Component {...props} isWithHolidays />;
-  };
+const withHolidays = <P extends object>(WrappedComponent: ComponentType<P>): FC<P> => {
+  const ComponentWithHolidays = (props: P) => <WrappedComponent {...props} isWithHolidays />;
+
+  const displayName = WrappedComponent.displayName || WrappedComponent.name;
+  ComponentWithHolidays.displayName = `withHolidays(${displayName})`;
+
+  return ComponentWithHolidays;
+};
 
 export default withHolidays;

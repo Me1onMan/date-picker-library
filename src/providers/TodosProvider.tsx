@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-no-constructed-context-values */
 import React, {
   createContext,
   Dispatch,
@@ -7,6 +6,7 @@ import React, {
   SetStateAction,
   useContext,
   useEffect,
+  useMemo,
   useState,
 } from "react";
 import { getCachedTodos, setCachedTodos } from "@utils/todosUtility";
@@ -42,10 +42,13 @@ const TodosProvider: FC<ITodosProviderProps> = ({ children }) => {
     setCachedTodos(todos);
   }, [todos]);
 
-  const slectedDayValues: ITodosContext = {
-    todos,
-    setTodos,
-  };
+  const slectedDayValues: ITodosContext = useMemo(
+    () => ({
+      todos,
+      setTodos,
+    }),
+    [todos],
+  );
   return <TodosContext.Provider value={slectedDayValues}>{children}</TodosContext.Provider>;
 };
 

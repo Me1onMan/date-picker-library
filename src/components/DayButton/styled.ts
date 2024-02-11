@@ -10,8 +10,6 @@ const Button = styled.button<IDayStyledProps>`
   width: ${({ theme }) => theme.size.l};
   height: ${({ theme }) => theme.size.l};
 
-  /* background-color: ${({ $isSelected, theme }) =>
-    $isSelected ? theme.color.daySelected : theme.color.white}; */
   background-color: ${({ $isSelected, $rangeType }) =>
     $rangeType ? getDayBgColor($rangeType) : getDayBgColor($isSelected)};
   border-color: transparent;

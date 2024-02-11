@@ -1,5 +1,4 @@
-/* eslint-disable react/jsx-no-constructed-context-values */
-import React, { createContext, FC, ReactNode, useContext, useState } from "react";
+import React, { createContext, FC, ReactNode, useContext, useMemo, useState } from "react";
 
 export interface ISelectedDayContext {
   selectedDay?: Date;
@@ -22,10 +21,13 @@ export const useSelectedDay = () => {
 const SelectedDayProvider: FC<ISelectedDayProviderProps> = ({ children }) => {
   const [selectedDay, setSelectedDay] = useState(undefined);
 
-  const slectedDayValues: ISelectedDayContext = {
-    selectedDay,
-    setSelectedDay,
-  };
+  const slectedDayValues: ISelectedDayContext = useMemo(
+    () => ({
+      selectedDay,
+      setSelectedDay,
+    }),
+    [selectedDay],
+  );
   return (
     <SelectedDayContext.Provider value={slectedDayValues}>{children}</SelectedDayContext.Provider>
   );

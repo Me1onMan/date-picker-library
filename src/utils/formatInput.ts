@@ -1,8 +1,6 @@
 const formatInput = (input: string) => {
-  // Удаление всех символов, кроме цифр
   const sanitizedValue = input.replace(/\D/g, "");
 
-  // Форматирование ввода
   if (sanitizedValue.length <= 8) {
     const day = sanitizedValue.slice(0, 2);
     const month = sanitizedValue.slice(2, 4);
