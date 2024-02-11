@@ -1,6 +1,6 @@
 import { ComponentType } from "react";
 
-export interface IDatePickerProps {
+export interface IRangePickerProps {
   CalendarView: ComponentType;
   minDate?: Date;
   maxDate?: Date;

@@ -1,43 +1,39 @@
 import { Meta, StoryObj } from "@storybook/react";
 
 import Decorator from "../../decorators/Decorator";
-import withHolidays from "../../decorators/withHolidays";
 import withSundayFirst from "../../decorators/withSundayFirst";
-import withTodos from "../../decorators/withTodos";
 import withWeekends from "../../decorators/withWeekends";
 
-import DatePicker from "./DatePicker";
+import RangePicker from "./RangePicker";
 
 const calendar = new Decorator();
-calendar.addDecorator(withHolidays);
 const DefaultCalendar = calendar.getCalendar();
-calendar.addDecorator(withTodos);
 calendar.addDecorator(withSundayFirst);
 calendar.addDecorator(withWeekends);
-const TodoCalendar = calendar.getCalendar();
+const AmericanCalendar = calendar.getCalendar();
 
-const meta: Meta<typeof DatePicker> = {
-  title: "DatePicker",
-  component: DatePicker,
+const meta: Meta<typeof RangePicker> = {
+  title: "RangePicker",
+  component: RangePicker,
   args: {},
   argTypes: {},
 };
 
 export default meta;
 
-type Story = StoryObj<typeof DatePicker>;
+type Story = StoryObj<typeof RangePicker>;
 
-export const Default: Story = {
+export const Primary: Story = {
   args: {
     ...meta.args,
     CalendarView: DefaultCalendar,
   },
 };
 
-export const withTodo: Story = {
+export const American: Story = {
   args: {
     ...meta.args,
-    CalendarView: TodoCalendar,
+    CalendarView: AmericanCalendar,
   },
 };
 

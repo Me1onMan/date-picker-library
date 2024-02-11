@@ -24,6 +24,7 @@ const COLORS: IColors = {
   daySelected: "rgba(47, 128, 237, 1)",
   dayIntervalEdge: "rgba(47, 128, 237, 0.6)",
   dayIntervalMid: "rgba(47, 128, 237, 0.1)",
+  modalWrapper: "rgba(0, 0, 0, 0.5)",
   red: "#F00",
 };
 

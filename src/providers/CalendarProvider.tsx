@@ -9,7 +9,6 @@ interface ICalendarContext {
   setSelectedDay: (_: Date) => void;
   setSelectedMonth: (_: number) => void;
   setSelectedYear: (_: number) => void;
-  isSundayFirst: boolean;
 }
 
 interface ICalendarProviderProps {
@@ -26,7 +25,6 @@ const CalendarContext = createContext<ICalendarContext>({
   setSelectedDay: () => undefined,
   setSelectedMonth: () => undefined,
   setSelectedYear: () => undefined,
-  isSundayFirst: false,
 });
 
 export const useCalendar = () => {
@@ -47,7 +45,6 @@ const CalendarProvider: FC<ICalendarProviderProps> = ({ children }) => {
     setSelectedDay,
     setSelectedMonth,
     setSelectedYear,
-    isSundayFirst: false,
   };
   return <CalendarContext.Provider value={calendarValues}>{children}</CalendarContext.Provider>;
 };

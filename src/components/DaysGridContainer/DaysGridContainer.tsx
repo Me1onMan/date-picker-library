@@ -1,19 +1,19 @@
-import React from "react";
+import React, { FC } from "react";
+import DayButton from "@components/DayButton/DayButton";
+import Weekdays from "@components/Weekdays/Weekdays";
 import withTheme from "@decorators/withTheme";
 import { useCalendar } from "@providers/CalendarProvider";
 import {
   getDaysSelectedMonth,
   getMissingNextDays,
   getMissingPrevDays,
-  isDaysEqual,
 } from "@utils/calculateDates";
 
-import DayButton from "./DayButton/DayButton";
-import Weekdays from "./Weekdays/Weekdays";
+import { IGridProps } from "./interfaces";
 import Grid from "./styled";
 
-const DaysGridContainer = () => {
-  const { isSundayFirst, selectedDay, selectedMonth, selectedYear } = useCalendar();
+const DaysGridContainer: FC<IGridProps> = ({ isSundayFirst, isWithWeekends, isWithHolidays }) => {
+  const { selectedMonth, selectedYear } = useCalendar();
 
   const prevMonthDays = [...getMissingPrevDays(selectedYear, selectedMonth, isSundayFirst)];
   const currentMonthDays = [...getDaysSelectedMonth(selectedYear, selectedMonth)];
@@ -29,7 +29,8 @@ const DaysGridContainer = () => {
         {currentMonthDays.map((date) => (
           <DayButton
             date={date}
-            isSelected={isDaysEqual(date, selectedDay)}
+            isWithWeekends={isWithWeekends}
+            isWithHolidays={isWithHolidays}
             key={date.toString()}
           />
         ))}

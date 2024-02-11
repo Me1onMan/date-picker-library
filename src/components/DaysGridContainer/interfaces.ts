@@ -1,7 +1,7 @@
-export interface ICalendarProps {
+export interface IGridProps {
   isSundayFirst?: boolean;
   isWithWeekends?: boolean;
   isWithHolidays?: boolean;
 }
 
-export interface ICalenderStyledProps {}
+export interface IGridStyledProps {}
