@@ -3,5 +3,3 @@ export interface IGridProps {
   isWithWeekends?: boolean;
   isWithHolidays?: boolean;
 }
-
-export interface IGridStyledProps {}

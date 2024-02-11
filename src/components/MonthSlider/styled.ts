@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import { IArrowBtnProps } from "./interfaces";
-
 export const SliderContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -31,7 +29,7 @@ export const Button = styled.button`
   }
 `;
 
-export const ArrowButton = styled.img<IArrowBtnProps>`
+export const ArrowButton = styled.img`
   width: ${({ theme }) => theme.size.l};
   height: ${({ theme }) => theme.size.l};
 

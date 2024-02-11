@@ -1,12 +1,12 @@
 import { Meta, StoryObj } from "@storybook/react";
 
-import Decorator from "../../decorators/Decorator";
+import ClaendarManager from "../../decorators/ClaendarManager";
 import withSundayFirst from "../../decorators/withSundayFirst";
 import withWeekends from "../../decorators/withWeekends";
 
 import RangePicker from "./RangePicker";
 
-const calendar = new Decorator();
+const calendar = new ClaendarManager();
 const DefaultCalendar = calendar.getCalendar();
 calendar.addDecorator(withSundayFirst);
 calendar.addDecorator(withWeekends);

@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
-import ClearIntervalButton from "@components/ClearIntervalButton/ClearIntervalButton";
 import DateInput from "@components/DateInput/DateInput";
+import FunctionalButton from "@components/FunctionalButton/FunctionalButton";
 import withTheme from "@decorators/withTheme";
 import CalendarProvider from "@providers/CalendarProvider";
 import { DateLimitsContext } from "@providers/DateLimitsProvider";
@@ -66,7 +66,7 @@ const RangePicker: FC<IRangePickerProps> = ({ CalendarView, minDate, maxDate }) 
             <DateInput onClick={handleClick} selectedDay={endDate} setSelectedDay={setEndDate} />
             {isOpen && <CalendarView />}
             {(startDate || endDate) && (
-              <ClearIntervalButton text="Clear interval" onClick={clearInterval} />
+              <FunctionalButton text="Clear interval" onClick={clearInterval} />
             )}
           </Container>
         </RangeContext.Provider>

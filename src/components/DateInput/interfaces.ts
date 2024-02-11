@@ -3,7 +3,3 @@ export interface IInputProps {
   selectedDay: Date;
   setSelectedDay: (_: Date) => void;
 }
-
-export interface IButtonProps {
-  src: string;
-}

@@ -4,9 +4,3 @@ export interface IMonthSliderProps {
   goPrevMonth: () => void;
   goNextMonth: () => void;
 }
-
-export interface IMonthSliderStyledProps {}
-
-export interface IArrowBtnProps {
-  src: string;
-}

@@ -3,5 +3,3 @@ export interface ICalendarProps {
   isWithWeekends?: boolean;
   isWithHolidays?: boolean;
 }
-
-export interface ICalenderStyledProps {}

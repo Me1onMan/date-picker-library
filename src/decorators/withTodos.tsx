@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/display-name */
 import React, { ComponentType, FC, useState } from "react";
-import ClearIntervalButton from "@components/ClearIntervalButton/ClearIntervalButton";
+import ClearIntervalButton from "@components/FunctionalButton/FunctionalButton";
 import ModalTasks from "@components/ModalTasks/ModalTasks";
 import { useSelectedDay } from "@providers/SelectedDayProvider";
 import TodosProvider from "@providers/TodosProvider";

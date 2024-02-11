@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import { IButtonProps } from "./interfaces";
-
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
@@ -15,7 +13,7 @@ export const Container = styled.div`
   border-radius: ${({ theme }) => theme.border.radius.primary};
 `;
 
-export const Button = styled.img<IButtonProps>`
+export const Button = styled.img`
   cursor: pointer;
 `;
 
