@@ -1,14 +1,14 @@
 {
   "name": "date-picker-library-shklyar",
   "version": "1.0.0",
-  "description": "",
+  "description": "Date picker library",
   "main": "build/index.js",
   "module": "build/index.es.js",
   "files": [
     "build"
   ],
   "keywords": [],
-  "author": "",
+  "author": "me1onman (https://github.com/Me1onMan)",
   "license": "ISC",
   "scripts": {
     "test": "jest",
