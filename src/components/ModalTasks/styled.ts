@@ -1,11 +1,26 @@
 import styled from "styled-components";
 
+export const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  background-color: ${({ theme }) => theme.color.modalWrapper};
+`;
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 
   padding: ${({ theme }) => theme.size.s};
+
+  background-color: ${({ theme }) => theme.color.white};
 
   border-color: ${({ theme }) => theme.color.border};
   border: ${({ theme }) => theme.border.line.primary};

@@ -14,6 +14,7 @@ import {
   InputContainer,
   TasksContainer,
   Title,
+  Wrapper,
 } from "./styled";
 
 const ModalTasks = ({ date, onClose }: IModalProps) => {
@@ -57,27 +58,29 @@ const ModalTasks = ({ date, onClose }: IModalProps) => {
   };
 
   return (
-    <Container>
-      <CloseButton onClick={onClose}>×</CloseButton>
-      <Title>Tasks for {formatDate(date)}</Title>
-      <InputContainer>
-        <Input value={inputText} onChange={handleChange} />
-        <AddButton onClick={handleAddTodo}>Add task</AddButton>
-      </InputContainer>
-      <TasksContainer>
-        {todos
-          .filter((todo) => isDaysEqual(todo.date, date))
-          .map((todo) => (
-            <Task
-              isDone={todo.isDone}
-              title={todo.title}
-              onDelete={() => handleDelete(todo.title)}
-              onCheck={() => handleCheck(todo.title)}
-              key={todo.title}
-            />
-          ))}
-      </TasksContainer>
-    </Container>
+    <Wrapper>
+      <Container>
+        <CloseButton onClick={onClose}>×</CloseButton>
+        <Title>Tasks for {formatDate(date)}</Title>
+        <InputContainer>
+          <Input value={inputText} onChange={handleChange} />
+          <AddButton onClick={handleAddTodo}>Add task</AddButton>
+        </InputContainer>
+        <TasksContainer>
+          {todos
+            .filter((todo) => isDaysEqual(todo.date, date))
+            .map((todo) => (
+              <Task
+                isDone={todo.isDone}
+                title={todo.title}
+                onDelete={() => handleDelete(todo.title)}
+                onCheck={() => handleCheck(todo.title)}
+                key={todo.title}
+              />
+            ))}
+        </TasksContainer>
+      </Container>
+    </Wrapper>
   );
 };
 
