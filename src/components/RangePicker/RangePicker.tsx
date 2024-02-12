@@ -1,5 +1,6 @@
 import React, { FC, useCallback, useMemo, useState } from "react";
 import DateInput from "@components/DateInput/DateInput";
+import ErrorBoundary from "@components/ErrorBoundary/ErrorBoundary";
 import FunctionalButton from "@components/FunctionalButton/FunctionalButton";
 import withTheme from "@decorators/withTheme";
 import CalendarProvider from "@providers/CalendarProvider";
@@ -56,26 +57,28 @@ const RangePicker: FC<IRangePickerProps> = ({ CalendarView, minDate, maxDate }) 
   );
 
   return (
-    <CalendarProvider>
-      <DateLimitsContext.Provider value={limitsValue}>
-        <RangeContext.Provider value={dayValue}>
-          <Container>
-            <Label>From</Label>
-            <DateInput
-              onClick={handleClick}
-              selectedDay={startDate}
-              setSelectedDay={setStartDate}
-            />
-            <Label>To</Label>
-            <DateInput onClick={handleClick} selectedDay={endDate} setSelectedDay={setEndDate} />
-            {isOpen && <CalendarView />}
-            {(startDate || endDate) && (
-              <FunctionalButton text="Clear interval" onClick={clearInterval} />
-            )}
-          </Container>
-        </RangeContext.Provider>
-      </DateLimitsContext.Provider>
-    </CalendarProvider>
+    <ErrorBoundary>
+      <CalendarProvider>
+        <DateLimitsContext.Provider value={limitsValue}>
+          <RangeContext.Provider value={dayValue}>
+            <Container>
+              <Label>From</Label>
+              <DateInput
+                onClick={handleClick}
+                selectedDay={startDate}
+                setSelectedDay={setStartDate}
+              />
+              <Label>To</Label>
+              <DateInput onClick={handleClick} selectedDay={endDate} setSelectedDay={setEndDate} />
+              {isOpen && <CalendarView />}
+              {(startDate || endDate) && (
+                <FunctionalButton text="Clear interval" onClick={clearInterval} />
+              )}
+            </Container>
+          </RangeContext.Provider>
+        </DateLimitsContext.Provider>
+      </CalendarProvider>
+    </ErrorBoundary>
   );
 };
 
