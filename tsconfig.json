@@ -19,7 +19,7 @@
       "@providers/*": ["providers/*"],
       "@utils/*": ["utils/*"],
     },
-    "typeRoots": ["./src/assets"],
+    "typeRoots": ["./src/assets", "./node_modules/@types/mocha"],
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "build", "src/**/*.stories.tsx", "src/**/*.test.tsx"],

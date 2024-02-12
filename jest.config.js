@@ -1,17 +1,53 @@
 module.exports = {
   roots: ["./src"],
-  setupFilesAfterEnv: ["./jest.setup.ts"],
+  setupFilesAfterEnv: ["./jest.setup.js"],
   moduleFileExtensions: ["ts", "tsx", "js"],
+  moduleDirectories: ["node_modules", "src"],
   testPathIgnorePatterns: ["node_modules/"],
   transform: {
+    "^.+\\.(js|jsx|ts)$": "babel-jest",
     "^.+\\.tsx?$": "ts-jest",
   },
   testMatch: ["**/*.test.(ts|tsx)"],
+  // moduleNameMapper: {
+  //   // Mocks out all these file formats when tests are run
+  //   "\\.(svg|png|jpg|jpeg)$": "identity-obj-proxy",
+  // },
   moduleNameMapper: {
-    // Mocks out all these file formats when tests are run
-    "\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
-      "identity-obj-proxy",
-    // should delete
-    "\\.(css|less|scss|sass)$": "identity-obj-proxy",
+    "^@/(.*)$": "<rootDir>/src/$1",
+    "^@components/(.*)$": "<rootDir>/src/components/$1",
+    "^@constants/(.*)$": "<rootDir>/src/constants/$1",
+    "^@decorators/(.*)$": "<rootDir>/src/decorators/$1",
+    "^@providers/(.*)$": "<rootDir>/src/providers/$1",
+    "^@utils/(.*)$": "<rootDir>/src/utils/$1",
+    "\\.(jpg|jpeg|png|svg)$": "<rootDir>/__mocks__/mockData.js",
   },
 };
+
+// module.exports = {
+//   preset: "ts-jest",
+//   testEnvironment: "jsdom",
+//   verbose: true,
+//   collectCoverageFrom: [
+//     "src/components/**/*.{ts,tsx}",
+//     "src/decorators/**/*.{ts,tsx}",
+//     "!src/**/*.stories.{ts,tsx}",
+//     "!src/**/index.ts",
+//     "!src/**/types.ts",
+//   ],
+//   moduleDirectories: ["node_modules", "src"],
+//   setupFilesAfterEnv: ["./jest.setup.js"],
+//   transform: {
+//     "^.+\\.(js|jsx|ts)$": "babel-jest",
+//     "^.+\\.tsx?$": "ts-jest",
+//   },
+//   moduleNameMapper: {
+//     "^@/(.*)$": "<rootDir>/src/$1",
+//     "^@components/(.*)$": "<rootDir>/src/components/$1",
+//     "^@constants/(.*)$": "<rootDir>/src/constants/$1",
+//     "^@decorators/(.*)$": "<rootDir>/src/decorators/$1",
+//     "^@providers/(.*)$": "<rootDir>/src/providers/$1",
+//     "^@utils/(.*)$": "<rootDir>/src/utils/$1",
+//     "\\.(jpg|jpeg|png|svg)$": "<rootDir>/__mocks__/mockData.js",
+//   },
+// };
