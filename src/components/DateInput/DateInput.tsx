@@ -2,6 +2,7 @@ import React, { ChangeEvent, FC, useEffect, useState } from "react";
 import calendarIcon from "@assets/Calendar.svg";
 import clearIcon from "@assets/Clear.svg";
 import withTheme from "@decorators/withTheme";
+import { useCalendar } from "@providers/CalendarProvider";
 import { useDateLimits } from "@providers/DateLimitsProvider";
 import { isDateInRange } from "@utils/calculateDates";
 import formatDate from "@utils/formatDate";
@@ -11,6 +12,7 @@ import { IInputProps } from "./interfaces";
 import { Button, Container, ErrorMessage, Input } from "./styled";
 
 const DateInput: FC<IInputProps> = ({ onClick, selectedDay, setSelectedDay }) => {
+  const { setSelectedMonth, setSelectedYear } = useCalendar();
   const { minDate, maxDate } = useDateLimits();
   const [inputValue, setInputValue] = useState<string>();
   const [isShowError, setIsShowError] = useState(false);
@@ -30,6 +32,8 @@ const DateInput: FC<IInputProps> = ({ onClick, selectedDay, setSelectedDay }) =>
       const [day, month, year] = formattedValue.split(".").map((el) => +el);
       const inputDate = new Date(year, month - 1, day);
       setSelectedDay(inputDate);
+      setSelectedMonth(inputDate.getMonth());
+      setSelectedYear(inputDate.getFullYear());
     } else {
       setSelectedDay(undefined);
     }

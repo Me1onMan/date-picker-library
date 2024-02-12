@@ -20,6 +20,11 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
     };
   }
 
+  componentDidCatch(error: Error): void {
+    // eslint-disable-next-line no-console
+    console.log(error);
+  }
+
   render() {
     const { hasError, error } = this.state;
     const { children } = this.props;
