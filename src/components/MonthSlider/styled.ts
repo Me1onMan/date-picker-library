@@ -6,6 +6,10 @@ export const SliderContainer = styled.div`
   align-items: center;
 
   width: 224px;
+
+  & svg:hover {
+    cursor: pointer;
+  }
 `;
 
 export const MiddleContainer = styled.div`

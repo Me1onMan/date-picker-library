@@ -11,6 +11,10 @@ export const Container = styled.div`
   border: ${({ theme }) => theme.border.line.primary};
   border-color: ${({ theme }) => theme.color.border};
   border-radius: ${({ theme }) => theme.border.radius.primary};
+
+  & svg:hover {
+    cursor: pointer;
+  }
 `;
 
 export const Button = styled.img`
