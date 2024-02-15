@@ -1,5 +1,9 @@
-/* eslint-disable no-nested-ternary */
-import { getDayBgColor, getDayBorderRadius, getTextColor } from "@utils/calculateStyles";
+import {
+  getDayBgColor,
+  getDayBorderRadius,
+  getHoverBgColor,
+  getTextColor,
+} from "@utils/calculateStyles";
 import styled from "styled-components";
 
 import { IDayStyledProps } from "./interfaces";
@@ -23,12 +27,7 @@ const Button = styled.button<IDayStyledProps>`
       : getTextColor($isSelected, $isWeekend || $isHoliday)};
 
   &:hover {
-    background-color: ${({ $isSelected, $rangeType, theme }) =>
-      $rangeType
-        ? getDayBgColor($rangeType)
-        : $isSelected
-          ? getDayBgColor($isSelected)
-          : theme.color.hover};
+    background-color: ${({ $isSelected, $rangeType }) => getHoverBgColor($isSelected, $rangeType)};
   }
 
   &:disabled {
@@ -38,12 +37,7 @@ const Button = styled.button<IDayStyledProps>`
   }
 
   &:disabled:hover {
-    background-color: ${({ $isSelected, $rangeType, theme }) =>
-      $rangeType
-        ? getDayBgColor($rangeType)
-        : $isSelected
-          ? getDayBgColor($isSelected)
-          : theme.color.white};
+    background-color: ${({ theme }) => theme.color.white};
   }
 `;
 

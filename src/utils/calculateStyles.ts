@@ -4,6 +4,7 @@ import { DefaultTheme } from "styled-components";
 import { RangeType } from "./calculateRange";
 
 const colorWhite = ({ theme }: DefaultTheme) => theme.color.white;
+const colorHover = ({ theme }: DefaultTheme) => theme.color.hover;
 const colorBgSelectedDay = ({ theme }: DefaultTheme): string => theme.color.daySelected;
 const colorBgRangeEdge = ({ theme }: DefaultTheme): string => theme.color.dayIntervalEdge;
 const colorBgRangeMid = ({ theme }: DefaultTheme): string => theme.color.dayIntervalMid;
@@ -65,3 +66,13 @@ export function getTextColor(rangeOrSelected: boolean | RangeType, isWeekend: bo
       return isWeekend ? colorTextWeekend : colorTextSecondary;
   }
 }
+
+export const getHoverBgColor = (isSelected: boolean, rangeType: RangeType) => {
+  if (rangeType) {
+    return getDayBgColor(rangeType);
+  }
+  if (isSelected) {
+    return getDayBgColor(isSelected);
+  }
+  return colorHover;
+};
