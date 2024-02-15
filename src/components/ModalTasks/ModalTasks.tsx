@@ -35,7 +35,7 @@ const ModalTasks = ({ date, onClose }: IModalProps) => {
     setTodos((prevTodos) => [...prevTodos, newTodo]);
   };
 
-  const handleDelete = (title: string) => {
+  const handleDelete = (title: string) => () => {
     setTodos((prevTodos) =>
       prevTodos.filter((todo) => {
         if (todo.title === title && isDaysEqual(todo.date, date)) return false;
@@ -44,7 +44,7 @@ const ModalTasks = ({ date, onClose }: IModalProps) => {
     );
   };
 
-  const handleCheck = (title: string) => {
+  const handleCheck = (title: string) => () => {
     setTodos((prevTodos) =>
       prevTodos.map((todo) => {
         if (todo.title === title && isDaysEqual(todo.date, date))
@@ -73,8 +73,8 @@ const ModalTasks = ({ date, onClose }: IModalProps) => {
               <Task
                 isDone={todo.isDone}
                 title={todo.title}
-                onDelete={() => handleDelete(todo.title)}
-                onCheck={() => handleCheck(todo.title)}
+                onDelete={handleDelete(todo.title)}
+                onCheck={handleCheck(todo.title)}
                 key={todo.title}
               />
             ))}
