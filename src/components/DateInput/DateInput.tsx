@@ -1,7 +1,8 @@
 import React, { ChangeEvent, FC, memo, useEffect, useState } from "react";
 import calendar from "@assets/Calendar.svg";
+import cross from "@assets/Clear.svg";
 // import Calendar from "@components/Icons/Calendar";
-import Cross from "@components/Icons/Cross";
+// import Cross from "@components/Icons/Cross";
 import withTheme from "@decorators/withTheme";
 import { useCalendar } from "@providers/CalendarProvider";
 import { useDateLimits } from "@providers/DateLimitsProvider";
@@ -61,7 +62,8 @@ const DateInput: FC<IInputProps> = memo(({ onClick, selectedDay, setSelectedDay 
           maxLength={10}
           placeholder="DD.MM.YYYY"
         />
-        <Cross onClick={clearInput} />
+        {/* <Cross onClick={clearInput} /> */}
+        <Button src={cross} onClick={clearInput} />
       </Container>
       {isShowError && <ErrorMessage>Invalid date!</ErrorMessage>}
     </>
