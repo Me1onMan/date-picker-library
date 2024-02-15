@@ -11,10 +11,10 @@ const colorBgRangeMid = ({ theme }: DefaultTheme): string => theme.color.dayInte
 const colorTextSecondary = ({ theme }: DefaultTheme): string => theme.color.textSecondary;
 const colorTextWeekend = ({ theme }: DefaultTheme): string => theme.color.red;
 
-const borderRadRangeStart = ({ theme }: DefaultTheme): string => theme.border.radius.dayRangeStart;
-const borderRadRangeEnd = ({ theme }: DefaultTheme): string => theme.border.radius.dayRangeEnd;
-const borderRadRangeMid = ({ theme }: DefaultTheme): string => theme.border.radius.dayRangeMid;
-const borderRadPrimary = ({ theme }: DefaultTheme): string => theme.border.radius.primary;
+const borderRadRangeStart = "8px 0 0 8px";
+const borderRadRangeEnd = "0 8px 8px 0";
+const borderRadRangeMid = "0";
+const borderRadPrimary = "8px";
 
 export function getDayBgColor(isSelected: boolean);
 export function getDayBgColor(rangeType: RangeType);

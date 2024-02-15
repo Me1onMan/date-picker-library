@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const P_100 = "100%";
 const BTN_HEIGHT = "36px";
+const BORDER_RAD_PRIMARY = "8px";
 
 const Button = styled.button`
   cursor: pointer;
@@ -11,9 +12,9 @@ const Button = styled.button`
 
   background-color: ${({ theme }) => theme.color.white};
 
-  border: ${({ theme }) => theme.border.line.primary};
+  border: 1px solid;
   border-color: ${({ theme }) => theme.color.border};
-  border-radius: ${({ theme }) => theme.border.radius.bottom};
+  border-radius: ${BORDER_RAD_PRIMARY};
 
   color: ${({ theme }) => theme.color.textSecondary};
 

@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+const BORDER_RAD_PRIMARY = "8px";
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -7,8 +9,8 @@ const Container = styled.div`
 
   padding: ${({ theme }) => theme.size.s};
 
-  border: ${({ theme }) => theme.border.line.primary} ${({ theme }) => theme.color.border};
-  border-radius: ${({ theme }) => theme.border.radius.primary};
+  border: 1px solid ${({ theme }) => theme.color.border};
+  border-radius: ${BORDER_RAD_PRIMARY};
 `;
 
 export default Container;

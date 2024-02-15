@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const INPUT_W = "172px";
 const INPUT_H = "20px";
+const BORDER_RAD_PRIMARY = "8px";
 
 export const Container = styled.div`
   display: flex;
@@ -11,9 +12,9 @@ export const Container = styled.div`
 
   padding: ${({ theme }) => theme.size.s} ${({ theme }) => theme.size.m};
 
-  border: ${({ theme }) => theme.border.line.primary};
+  border: 1px solid;
   border-color: ${({ theme }) => theme.color.border};
-  border-radius: ${({ theme }) => theme.border.radius.primary};
+  border-radius: ${BORDER_RAD_PRIMARY};
 
   & svg:hover {
     cursor: pointer;

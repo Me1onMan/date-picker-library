@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+const BORDER_RAD_PRIMARY = "8px";
+
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
@@ -21,9 +23,9 @@ export const DeleteButton = styled.button`
 
   background-color: ${({ theme }) => theme.color.white};
 
-  border: ${({ theme }) => theme.border.line.primary};
+  border: 1px solid;
   border-color: ${({ theme }) => theme.color.border};
-  border-radius: ${({ theme }) => theme.border.radius.primary};
+  border-radius: ${BORDER_RAD_PRIMARY};
 
   color: ${({ theme }) => theme.color.textSecondary};
 

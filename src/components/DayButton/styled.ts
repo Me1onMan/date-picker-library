@@ -14,7 +14,7 @@ const Button = styled.button<IDayStyledProps>`
     $rangeType ? getDayBgColor($rangeType) : getDayBgColor($isSelected)};
   border-color: transparent;
   border: ${({ $isToday, theme }) =>
-    $isToday ? `${theme.border.line.primary} ${theme.color.daySelected}` : "transparent"};
+    $isToday ? `1px solid ${theme.color.daySelected}` : "transparent"};
   border-radius: ${({ $rangeType }) => getDayBorderRadius($rangeType)};
 
   color: ${({ $isSelected, $rangeType, $isWeekend, $isHoliday }) =>

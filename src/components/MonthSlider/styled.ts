@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const WIDTH = "224px";
+const BORDER_RAD_PRIMARY = "8px";
 
 export const SliderContainer = styled.div`
   display: flex;
@@ -26,7 +27,7 @@ export const Button = styled.button`
 
   background-color: ${({ theme }) => theme.color.white};
   border: none;
-  border-radius: ${({ theme }) => theme.border.radius.primary};
+  border-radius: ${BORDER_RAD_PRIMARY};
 
   font-size: ${({ theme }) => theme.font.size.m};
 
@@ -43,7 +44,7 @@ export const ArrowButton = styled.img`
 
   cursor: pointer;
 
-  border-radius: ${({ theme }) => theme.border.radius.primary};
+  border-radius: ${BORDER_RAD_PRIMARY};
 
   &:hover {
     background-color: ${({ theme }) => theme.color.hover};
