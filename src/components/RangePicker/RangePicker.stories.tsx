@@ -1,12 +1,11 @@
+import CalendarManager from "@decorators/CalendarManager";
+import withSundayFirst from "@decorators/withSundayFirst";
+import withWeekends from "@decorators/withWeekends";
 import { Meta, StoryObj } from "@storybook/react";
-
-import ClaendarManager from "../../decorators/ClaendarManager";
-import withSundayFirst from "../../decorators/withSundayFirst";
-import withWeekends from "../../decorators/withWeekends";
 
 import RangePicker from "./RangePicker";
 
-const calendar = new ClaendarManager();
+const calendar = new CalendarManager();
 const DefaultCalendar = calendar.getCalendar();
 calendar.addDecorator(withSundayFirst);
 calendar.addDecorator(withWeekends);

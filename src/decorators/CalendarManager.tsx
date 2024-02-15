@@ -2,7 +2,7 @@ import { FC } from "react";
 import Calendar from "@components/Calendar/Calendar";
 import { ICalendarProps } from "@components/Calendar/interfaces";
 
-class ClaendarManager {
+class CalendarManager {
   private calendar: FC<ICalendarProps>;
 
   constructor() {
@@ -18,4 +18,4 @@ class ClaendarManager {
   }
 }
 
-export default ClaendarManager;
+export default CalendarManager;

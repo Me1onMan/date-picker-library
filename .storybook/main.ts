@@ -25,12 +25,12 @@ const config: StorybookConfig = {
       ...config.resolve,
       alias: {
         ...config?.resolve?.alias,
-        "@assets": path.resolve(__dirname, "../src/assets"),
-        "@components": path.resolve(__dirname, "../src/components"),
-        "@constants": path.resolve(__dirname, "../src/constants"),
-        "@decorators": path.resolve(__dirname, "../src/decorators"),
-        "@providers": path.resolve(__dirname, "../src/providers"),
-        "@utils": path.resolve(__dirname, "../src/utils"),
+        "@assets/*": path.resolve(__dirname, "../src/assets/*"),
+        "@components/*": path.resolve(__dirname, "../src/components/*"),
+        "@constants/*": path.resolve(__dirname, "../src/constants/*"),
+        "@decorators/*": path.resolve(__dirname, "../src/decorators/*"),
+        "@providers/*": path.resolve(__dirname, "../src/providers/*"),
+        "@utils/*": path.resolve(__dirname, "../src/utils/*"),
       },
     };
 
