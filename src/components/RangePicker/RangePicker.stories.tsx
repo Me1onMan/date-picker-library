@@ -1,8 +1,7 @@
+import CalendarManager from "@decorators/CalendarManager";
+import withSundayFirst from "@decorators/withSundayFirst";
+import withWeekends from "@decorators/withWeekends";
 import { Meta, StoryObj } from "@storybook/react";
-
-import CalendarManager from "../../decorators/CalendarManager";
-import withSundayFirst from "../../decorators/withSundayFirst";
-import withWeekends from "../../decorators/withWeekends";
 
 import RangePicker from "./RangePicker";
 
