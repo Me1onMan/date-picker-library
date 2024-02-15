@@ -16,9 +16,9 @@ const RangePicker: FC<IRangePickerProps> = ({ CalendarView, minDate, maxDate }) 
   const [startDate, setStartDate] = useState<Date>();
   const [endDate, setEndDate] = useState<Date>();
 
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     setIsOpen((prev) => !prev);
-  };
+  }, []);
 
   const setRangeOnClick = useCallback(
     (clickedDate: Date) => {

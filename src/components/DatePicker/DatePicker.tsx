@@ -1,4 +1,4 @@
-import React, { FC, useMemo, useState } from "react";
+import React, { FC, useCallback, useMemo, useState } from "react";
 import DateInput from "@components/DateInput/DateInput";
 import ErrorBoundary from "@components/ErrorBoundary/ErrorBoundary";
 import withTheme from "@decorators/withTheme";
@@ -14,9 +14,9 @@ const DatePicker: FC<IDatePickerProps> = ({ CalendarView, minDate, maxDate }) =>
 
   const [isOpen, setIsOpen] = useState(false);
   const [selectedDay, setSelectedDay] = useState<Date>();
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     setIsOpen((prev) => !prev);
-  };
+  }, []);
 
   const dayValue: ISelectedDayContext = useMemo(
     () => ({

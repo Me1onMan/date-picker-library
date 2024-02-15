@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, memo } from "react";
 import ArrowNext from "@components/Icons/ArrowNext";
 import ArrowPrev from "@components/Icons/ArrowPrev";
 import MONTH_NAMES from "@constants/monthNames";
@@ -8,7 +8,7 @@ import { ThemeProvider } from "styled-components";
 import { IMonthSliderProps } from "./interfaces";
 import { Button, MiddleContainer, SliderContainer } from "./styled";
 
-const MonthSlider: FC<IMonthSliderProps> = ({ year, month, goPrevMonth, goNextMonth }) => {
+const MonthSlider: FC<IMonthSliderProps> = memo(({ year, month, goPrevMonth, goNextMonth }) => {
   return (
     <ThemeProvider theme={theme}>
       <SliderContainer>
@@ -29,6 +29,8 @@ const MonthSlider: FC<IMonthSliderProps> = ({ year, month, goPrevMonth, goNextMo
       </SliderContainer>
     </ThemeProvider>
   );
-};
+});
+
+MonthSlider.displayName = "MonthSlider";
 
 export default MonthSlider;

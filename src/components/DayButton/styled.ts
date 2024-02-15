@@ -28,7 +28,7 @@ const Button = styled.button<IDayStyledProps>`
         ? getDayBgColor($rangeType)
         : $isSelected
           ? getDayBgColor($isSelected)
-          : theme.color.white};
+          : theme.color.hover};
   }
 
   &:disabled {

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, useEffect, useState } from "react";
+import React, { ChangeEvent, FC, memo, useEffect, useState } from "react";
 import Calendar from "@components/Icons/Calendar";
 import Cross from "@components/Icons/Cross";
 import withTheme from "@decorators/withTheme";
@@ -11,7 +11,7 @@ import formatInput from "@utils/formatInput";
 import { IInputProps } from "./interfaces";
 import { Container, ErrorMessage, Input } from "./styled";
 
-const DateInput: FC<IInputProps> = ({ onClick, selectedDay, setSelectedDay }) => {
+const DateInput: FC<IInputProps> = memo(({ onClick, selectedDay, setSelectedDay }) => {
   const { setSelectedMonth, setSelectedYear } = useCalendar();
   const { minDate, maxDate } = useDateLimits();
   const [inputValue, setInputValue] = useState<string>();
@@ -60,6 +60,8 @@ const DateInput: FC<IInputProps> = ({ onClick, selectedDay, setSelectedDay }) =>
       {isShowError && <ErrorMessage>Invalid date!</ErrorMessage>}
     </>
   );
-};
+});
+
+DateInput.displayName = "DateInput";
 
 export default withTheme(DateInput);

@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useCallback } from "react";
 import DaysGridContainer from "@components/DaysGridContainer/DaysGridContainer";
 import MonthSlider from "@components/MonthSlider/MonthSlider";
 import withTheme from "@decorators/withTheme";
@@ -13,15 +13,15 @@ const Calendar: FC<ICalendarProps> = ({
   isWithHolidays = false,
 }) => {
   const { selectedYear, setSelectedYear, selectedMonth, setSelectedMonth } = useCalendar();
-  const goPrevMonth = () => {
+  const goPrevMonth = useCallback(() => {
     setSelectedYear(selectedMonth === 0 ? selectedYear - 1 : selectedYear);
     setSelectedMonth(selectedMonth > 0 ? selectedMonth - 1 : 11);
-  };
+  }, [setSelectedMonth, selectedMonth, setSelectedYear, selectedYear]);
 
-  const goNextMonth = () => {
+  const goNextMonth = useCallback(() => {
     setSelectedYear(selectedMonth === 11 ? selectedYear + 1 : selectedYear);
     setSelectedMonth(selectedMonth < 11 ? selectedMonth + 1 : 0);
-  };
+  }, [setSelectedMonth, selectedMonth, setSelectedYear, selectedYear]);
 
   return (
     <Container>
