@@ -1,8 +1,11 @@
 import styled from "styled-components";
 
+const VW_100 = "100vw";
+const VH_90 = "90vh";
+
 export const ErrorBoundaryWrapper = styled.div`
-  max-width: 100vw;
-  min-height: 90vh;
+  max-width: ${VW_100};
+  min-height: ${VH_90};
   display: flex;
   justify-content: center;
   align-items: center;

@@ -21,6 +21,6 @@
     },
     "typeRoots": ["./src/assets", "./node_modules/@types/mocha"],
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "@types"],
   "exclude": ["node_modules", "build", "src/**/*.stories.tsx", "src/**/*.test.tsx"],
 }

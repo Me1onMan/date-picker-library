@@ -5,7 +5,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
 
-  padding: 10px;
+  padding: ${({ theme }) => theme.size.s};
 
   border: ${({ theme }) => theme.border.line.primary} ${({ theme }) => theme.color.border};
   border-radius: ${({ theme }) => theme.border.radius.primary};

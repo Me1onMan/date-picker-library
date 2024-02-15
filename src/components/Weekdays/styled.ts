@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
+const WIDTH = "224px";
+
 export const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
 
-  width: 224px;
+  width: ${WIDTH};
 `;
 
 export const Weekday = styled.p`

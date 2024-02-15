@@ -1,10 +1,13 @@
 import styled from "styled-components";
 
+const P_100 = "100%";
+const BTN_HEIGHT = "36px";
+
 const Button = styled.button`
   cursor: pointer;
 
-  width: 100%;
-  height: 36px;
+  width: ${P_100};
+  height: ${BTN_HEIGHT};
 
   background-color: ${({ theme }) => theme.color.white};
 

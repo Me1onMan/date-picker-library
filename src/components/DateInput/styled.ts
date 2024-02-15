@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+const INPUT_W = "172px";
+const INPUT_H = "20px";
+
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
@@ -22,8 +25,8 @@ export const Button = styled.img`
 `;
 
 export const Input = styled.input`
-  width: 172px;
-  height: 20px;
+  width: ${INPUT_W};
+  height: ${INPUT_H};
 
   font-size: ${({ theme }) => theme.font.size.l};
 
