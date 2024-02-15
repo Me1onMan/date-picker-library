@@ -25,15 +25,19 @@ const DateInput: FC<IInputProps> = memo(({ onClick, selectedDay, setSelectedDay 
     }
   }, [selectedDay, minDate, maxDate]);
 
+  const setDateValues = (formattedString: string) => {
+    const [day, month, year] = formattedString.split(".").map((el) => +el);
+    const inputDate = new Date(year, month - 1, day);
+    setSelectedDay(inputDate);
+    setSelectedMonth(inputDate.getMonth());
+    setSelectedYear(inputDate.getFullYear());
+  };
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const rawInputValue = e.target.value;
     const formattedValue = formatInput(rawInputValue);
     if (formattedValue.length === 10) {
-      const [day, month, year] = formattedValue.split(".").map((el) => +el);
-      const inputDate = new Date(year, month - 1, day);
-      setSelectedDay(inputDate);
-      setSelectedMonth(inputDate.getMonth());
-      setSelectedYear(inputDate.getFullYear());
+      setDateValues(formattedValue);
     } else {
       setSelectedDay(undefined);
     }
