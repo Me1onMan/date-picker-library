@@ -2,7 +2,7 @@ import React, { ChangeEvent, useState } from "react";
 import Task from "@components/Task/Task";
 import withTheme from "@decorators/withTheme";
 import { ITodo, useTodos } from "@providers/TodosProvider";
-import { isDaysEqual } from "@utils/calculateDates";
+import { isDaysEqual } from "@utils/compareDates";
 import formatDate from "@utils/formatDate";
 
 import { IModalProps } from "./interfaces";

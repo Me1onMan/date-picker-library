@@ -1,7 +1,7 @@
 /* eslint-disable no-nested-ternary */
 import { DefaultTheme } from "styled-components";
 
-import { RangeType } from "./getRangeType";
+import { RangeType } from "./calculateRange";
 
 const colorWhite = ({ theme }: DefaultTheme) => theme.color.white;
 const colorBgSelectedDay = ({ theme }: DefaultTheme): string => theme.color.daySelected;

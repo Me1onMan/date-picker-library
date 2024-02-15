@@ -7,7 +7,7 @@ import {
   getDaysSelectedMonth,
   getMissingNextDays,
   getMissingPrevDays,
-} from "@utils/calculateDates";
+} from "@utils/getDaysForCalendar";
 
 import { IGridProps } from "./interfaces";
 import Grid from "./styled";

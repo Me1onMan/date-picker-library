@@ -1,6 +1,6 @@
 import { HOLIDAYS } from "@constants/holidays";
 
-import { isMonthAndDayEqual } from "./calculateDates";
+import { isMonthAndDayEqual } from "./compareDates";
 
 const isHoliday = (day: Date): boolean => {
   return (

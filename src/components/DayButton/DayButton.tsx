@@ -3,8 +3,9 @@ import withTheme from "@decorators/withTheme";
 import { useCalendar } from "@providers/CalendarProvider";
 import { useRange } from "@providers/RangeProvider";
 import { useSelectedDay } from "@providers/SelectedDayProvider";
-import { checkWeekend, isDaysEqual } from "@utils/calculateDates";
-import { getRangeType } from "@utils/getRangeType";
+import { getRangeType } from "@utils/calculateRange";
+import checkWeekend from "@utils/checkWeeend";
+import { isDaysEqual } from "@utils/compareDates";
 import isHoliday from "@utils/isHoliday";
 
 import { IDayProps } from "./interfaces";

@@ -1,6 +1,12 @@
-import { isDaysEqual } from "./calculateDates";
+import { isDaysEqual } from "./compareDates";
 
 export type RangeType = "start" | "middle" | "end";
+
+export const isDateInRange = (date: Date, minDate: Date, maxDate: Date): boolean => {
+  if (minDate && date.getTime() < minDate.getTime()) return false;
+  if (maxDate && date.getTime() > maxDate.getTime()) return false;
+  return true;
+};
 
 export const getRangeType = (day: Date, startDate: Date, endDate: Date): RangeType => {
   if (!day) return undefined;

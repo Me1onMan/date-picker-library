@@ -4,7 +4,7 @@ import Cross from "@components/Icons/Cross";
 import withTheme from "@decorators/withTheme";
 import { useCalendar } from "@providers/CalendarProvider";
 import { useDateLimits } from "@providers/DateLimitsProvider";
-import { isDateInRange } from "@utils/calculateDates";
+import { isDateInRange } from "@utils/calculateRange";
 import formatDate from "@utils/formatDate";
 import formatInput from "@utils/formatInput";
 

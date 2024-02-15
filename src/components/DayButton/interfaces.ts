@@ -1,4 +1,4 @@
-import { RangeType } from "@utils/getRangeType";
+import { RangeType } from "@utils/calculateRange";
 
 export interface IDayProps {
   date: Date;

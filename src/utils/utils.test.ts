@@ -2,7 +2,7 @@ import { describe, expect, it } from "@jest/globals";
 
 import "@testing-library/jest-dom";
 
-import { getRangeType } from "./getRangeType";
+import { getRangeType } from "./calculateRange";
 import isHoliday from "./isHoliday";
 
 describe("isHoliday test", () => {
