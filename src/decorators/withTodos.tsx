@@ -1,5 +1,5 @@
 import React, { ComponentType, FC, useState } from "react";
-import ClearIntervalButton from "@components/FunctionalButton/FunctionalButton";
+import FunctionalButton from "@components/FunctionalButton/FunctionalButton";
 import ModalTasks from "@components/ModalTasks/ModalTasks";
 import { useSelectedDay } from "@providers/SelectedDayProvider";
 import TodosProvider from "@providers/TodosProvider";
@@ -20,7 +20,7 @@ const withTodos = <P extends object>(WrappedComponent: ComponentType<P>): FC<P> 
     return (
       <TodosProvider>
         <WrappedComponent {...props} />
-        {selectedDay && <ClearIntervalButton text="Add task" onClick={openModal} />}
+        {selectedDay && <FunctionalButton text="Add task" onClick={openModal} />}
         {isModalOpen && <ModalTasks date={selectedDay} onClose={closeModal} />}
       </TodosProvider>
     );
