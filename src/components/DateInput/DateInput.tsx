@@ -1,5 +1,6 @@
 import React, { ChangeEvent, FC, memo, useEffect, useState } from "react";
-import Calendar from "@components/Icons/Calendar";
+import calendar from "@assets/Calendar.svg";
+// import Calendar from "@components/Icons/Calendar";
 import Cross from "@components/Icons/Cross";
 import withTheme from "@decorators/withTheme";
 import { useCalendar } from "@providers/CalendarProvider";
@@ -9,7 +10,7 @@ import formatDate from "@utils/formatDate";
 import formatInput from "@utils/formatInput";
 
 import { IInputProps } from "./interfaces";
-import { Container, ErrorMessage, Input } from "./styled";
+import { Button, Container, ErrorMessage, Input } from "./styled";
 
 const DateInput: FC<IInputProps> = memo(({ onClick, selectedDay, setSelectedDay }) => {
   const { setSelectedMonth, setSelectedYear } = useCalendar();
@@ -52,7 +53,8 @@ const DateInput: FC<IInputProps> = memo(({ onClick, selectedDay, setSelectedDay 
   return (
     <>
       <Container>
-        <Calendar onClick={onClick} />
+        {/* <Calendar onClick={onClick} /> */}
+        <Button src={calendar} onClick={onClick} />
         <Input
           value={selectedDay ? formatDate(selectedDay) : inputValue}
           onChange={handleChange}
