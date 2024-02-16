@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FC, memo, useEffect, useState } from "react";
-import Calendar from "@components/Icons/Calendar";
-import Cross from "@components/Icons/Cross";
+import calendarIcon from "@assets/Calendar.svg";
+import crossIcon from "@assets/Clear.svg";
 import withTheme from "@decorators/withTheme";
 import { useCalendar } from "@providers/CalendarProvider";
 import { useDateLimits } from "@providers/DateLimitsProvider";
@@ -9,7 +9,7 @@ import formatDate from "@utils/formatDate";
 import formatInput from "@utils/formatInput";
 
 import { IInputProps } from "./interfaces";
-import { Container, ErrorMessage, Input } from "./styled";
+import { Button, Container, ErrorMessage, Input } from "./styled";
 
 const DateInput: FC<IInputProps> = memo(({ onClick, selectedDay, setSelectedDay }) => {
   const { setSelectedMonth, setSelectedYear } = useCalendar();
@@ -52,14 +52,14 @@ const DateInput: FC<IInputProps> = memo(({ onClick, selectedDay, setSelectedDay 
   return (
     <>
       <Container>
-        <Calendar onClick={onClick} />
+        <Button src={calendarIcon} onClick={onClick} />
         <Input
           value={selectedDay ? formatDate(selectedDay) : inputValue}
           onChange={handleChange}
           maxLength={10}
           placeholder="DD.MM.YYYY"
         />
-        <Cross onClick={clearInput} />
+        <Button src={crossIcon} onClick={clearInput} />
       </Container>
       {isShowError && <ErrorMessage>Invalid date!</ErrorMessage>}
     </>
