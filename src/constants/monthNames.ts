@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-shadow
 enum MONTH_NAMES {
   January,
   February,
