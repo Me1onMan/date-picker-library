@@ -21,21 +21,20 @@ const RangePicker: FC<IRangePickerProps> = ({ CalendarView, minDate, maxDate }) 
   }, []);
 
   const setRangeOnClick = useCallback(
-    (clickedDate: Date) => {
+    (clickedDay: Date) => {
       if (!startDate) {
-        setStartDate(clickedDate);
+        setStartDate(clickedDay);
         return;
       }
       if (!endDate) {
-        if (startDate.getTime() > clickedDate.getTime()) {
-          setStartDate(clickedDate);
-          return;
-        }
-        setEndDate(clickedDate);
+        setEndDate(clickedDay);
         return;
       }
-      setStartDate(clickedDate);
-      setEndDate(undefined);
+      if (clickedDay.getTime() < (startDate.getTime() + endDate.getTime()) / 2) {
+        setStartDate(clickedDay);
+        return;
+      }
+      setEndDate(clickedDay);
     },
     [startDate, endDate],
   );

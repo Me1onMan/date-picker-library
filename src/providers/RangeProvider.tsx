@@ -33,8 +33,8 @@ export const useRange = () => {
 };
 
 const RangeProvider: FC<IRangeProviderProps> = ({ children }) => {
-  const [startDate, setStartDate] = useState(undefined);
-  const [endDate, setEndDate] = useState(undefined);
+  const [startDate, setStartDate] = useState<Date>(undefined);
+  const [endDate, setEndDate] = useState<Date>(undefined);
 
   const setRangeOnClick = useCallback(
     (clickedDay: Date) => {
@@ -46,8 +46,12 @@ const RangeProvider: FC<IRangeProviderProps> = ({ children }) => {
         setEndDate(clickedDay);
         return;
       }
-      setStartDate(clickedDay);
-      setEndDate(undefined);
+
+      if (clickedDay.getTime() < (startDate.getTime() + endDate.getTime()) / 2) {
+        setStartDate(clickedDay);
+        return;
+      }
+      setEndDate(clickedDay);
     },
     [startDate, endDate],
   );

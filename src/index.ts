@@ -1,3 +1,6 @@
+import CalendarManager from "@decorators/CalendarManager";
+
+export const calendar = new CalendarManager();
 export { default as CalendarManager } from "@decorators/CalendarManager";
 export { default as withHolidays } from "@decorators/withHolidays";
 export { default as withSundayFirst } from "@decorators/withSundayFirst";
