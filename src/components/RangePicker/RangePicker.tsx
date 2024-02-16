@@ -27,6 +27,10 @@ const RangePicker: FC<IRangePickerProps> = ({ CalendarView, minDate, maxDate }) 
         return;
       }
       if (!endDate) {
+        if (clickedDay.getTime() < startDate.getTime()) {
+          setStartDate(clickedDay);
+          return;
+        }
         setEndDate(clickedDay);
         return;
       }
